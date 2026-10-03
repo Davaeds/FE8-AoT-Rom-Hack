@@ -27,6 +27,10 @@
     #include "Maps/MasterMapInstaller.event"
     #endif // USE_TEST_MAP
 	
+    //Attack on Titan content
+    #include "AoT/AoT.event"
+    MESSAGE Used AoT space ends at currentOffset
+
 	ASSERT (FreeSpaceEnd - currentOffset) // So that you don't overwrite vanilla tables if using default freespace
 	
     MESSAGE Used free space ends at currentOffset

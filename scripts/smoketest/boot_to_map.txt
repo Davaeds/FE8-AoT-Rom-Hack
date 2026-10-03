@@ -1,0 +1,26 @@
+# Boot, start a new game on a blank save, skip the intro, and reach the
+# first chapter's map. Frame counts are at 60 frames per second.
+wait 600
+press START
+wait 400
+shot 01_main_menu
+press A
+wait 120
+shot 02_mode_select
+press A
+wait 120
+shot 03_save_slot
+press A
+wait 420
+shot 04_intro
+press START
+wait 300
+shot 05_chapter_title
+press START
+wait 300
+press START
+wait 300
+shot 06_preparations
+press START
+wait 300
+shot 07_map

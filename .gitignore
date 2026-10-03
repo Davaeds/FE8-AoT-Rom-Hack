@@ -68,3 +68,7 @@ __pycache__
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# AoT build pipeline
+/.tools/
+/build/

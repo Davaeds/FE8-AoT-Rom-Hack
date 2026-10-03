@@ -1,0 +1,13 @@
+// Attack on Titan hack content.
+// Included last from ROMBuildfile.event, so anything here takes precedence
+// over the Skill System's test chapter setup.
+
+// Pipeline check: retitle the Skill System test chapter. Text ID 0x160 is the
+// chapter name that Events/Release_map.event sets; this later write wins.
+// Replaced once the real prologue lands.
+setText(0x160, AoTTestChapterName)
+
+ALIGN 4
+AoTTestChapterName:
+String("Shiganshina")
+BYTE 0
