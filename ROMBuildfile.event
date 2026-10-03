@@ -21,11 +21,13 @@
 	#ifdef USE_TEST_MAP
     //Events
     #include "Events/Release_map.event"
-    #include "Events/WorldMapEvents.event"
 
     //Maps
     #include "Maps/MasterMapInstaller.event"
     #endif // USE_TEST_MAP
+
+    //Minimal world map events (skip the world map); the AoT chapter needs them too
+    #include "Events/WorldMapEvents.event"
 	
     //Attack on Titan content
     #include "AoT/AoT.event"

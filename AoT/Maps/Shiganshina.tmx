@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="21" height="26" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="1">
+ <tileset firstgid="1" name="Shiganshina_tiles" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
+  <image source="Shiganshina_tiles.png" width="512" height="512"/>
+ </tileset>
+ <layer id="1" name="Main" width="21" height="26">
+  <properties>
+   <property name="Anims1" value="18"/>
+   <property name="Anims2" value="0"/>
+   <property name="ChapterID" value="0"/>
+   <property name="Main" value=""/>
+   <property name="MapChangesID" value="6"/>
+   <property name="MapID" value="4"/>
+   <property name="ObjectType" value="14"/>
+   <property name="ObjectType2" value="0"/>
+   <property name="PaletteID" value="15"/>
+   <property name="TileConfig" value="16"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNqllE1rFEEQhrtnWcZshJxN4tdhI6KQsyiJICEEMZu7BzURkmic0bMns2LiLYI3QU8hEOMf8KAnFdSLHrMrghA04D9w/XjLfosp29kE9PDQ3VXV1W9V90yeOJf/B1fBQmR7V/l33oPP3rktH+Zqb/vAAuaXcMY0mAGzYA7Mg08+cBQxR8AxMA1mQA3+FPSCL2A7KXJeg/8W1ougCZbAMrjLnGcwTiBmHJwFi6DJnC98yLkH655IZ+acO+z/ppoUjHHcor3GeS81fqXOwSTkvIJxKGLD5KwTe0aNNskpGvdWQr4Wa3/ZpWdV9my3fmqc5GuxdslZ1jPV1q2fKevXc75h3mHOV77wDzG2zh6mJbXXTT65Jz1nICn6eccHVuS+wD3aqlEP69FdjXHUe8u4f5LvV+LXMX8MNlj3ODiHeW6wZ1oteaWoR+sQXsP+BrythLNt3cfF74u56rN+7UfKeixq0/rS5M8469cYIdatdeVRbSsltZfFZKZ2fePb8D3hva/6sJZ5D9dan91j38Uq9U4khY5sh1E0rUV7MhOjcVPy7vGd3/DF+xfugweRLQebiB02e65HMUID/g8uvHt9/zJ+hO0p1y3afv9vYO/jnrbxd4yOSeNXOlh/Bz/AT57X7pLT5lUdU5F/QP5TYD84AA6CQ97kZe076dDeqO+k/AvALBkFp+lrsZ99Zo9817GORtSb8/IvACOkCS6aGmOdHeo4ZXRYv5x5E+Mzk1NYAnNkuWSP6JgHFxjfiPz9Judl8Ajss3fvwr3G5zw3Gholfs15GzxkTn1Lm11yWh3Du/hF5wnzXuJ+yln9kY5frFcHkg==
+  </data>
+ </layer>
+ <layer id="2" name="GateBreach" width="21" height="26">
+  <properties>
+   <property name="ID" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYCAffGZiYPgExSA2NcAVZgaG54wQM0HsUTAKRsEoGAWjYBQMXwAAxbQHXQ==
+  </data>
+ </layer>
+ <layer id="3" name="YeagerHouse" width="21" height="26">
+  <properties>
+   <property name="ID" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFowA/UGZmYFABYlVm6pnpDDTrMxMDgyvzaPiOglEwCkbBSAYAFx8B+Q==
+  </data>
+ </layer>
+ <layer id="4" name="HouseRuinA" width="21" height="26">
+  <properties>
+   <property name="ID" value="2"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFo4B4oMjMwKDETF0zHYHmOTGPhu0oGAWjYBSMRAAADlsA0w==
+  </data>
+ </layer>
+ <layer id="5" name="HouseRuinB" width="21" height="26">
+  <properties>
+   <property name="ID" value="3"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNrtzMEJACAMwMDQou4/pLqGHaIvyUG+gf/sgFPd6HuOhFmtRJIkNXm22ALU
+  </data>
+ </layer>
+ <layer id="6" name="HouseRuinC" width="21" height="26">
+  <properties>
+   <property name="ID" value="4"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFgxUoMjMwKDFT10xHoHlOzKNhOwpGwSgYBaNgcAAAh8MA0w==
+  </data>
+ </layer>
+ <layer id="7" name="BoulderA" width="21" height="26">
+  <properties>
+   <property name="ID" value="5"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFIwF8ZhoNg1EwCkbBKBgFgw8AAGAAAPY=
+  </data>
+ </layer>
+ <layer id="8" name="BoulderB" width="21" height="26">
+  <properties>
+   <property name="ID" value="6"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFwwF8ZhoNg1EwCkbBKBgFQw8AAH6gAPY=
+  </data>
+ </layer>
+ <layer id="9" name="BoulderC" width="21" height="26">
+  <properties>
+   <property name="ID" value="7"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFo2AUEAM+M42GwSgYBaNgFFAbAAAp3QD2
+  </data>
+ </layer>
+ <layer id="10" name="BoulderD" width="21" height="26">
+  <properties>
+   <property name="ID" value="8"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eNpjYBgFo2AUjFTwmWk0DEbBKBgFAwsAXuoA9g==
+  </data>
+ </layer>
+</map>

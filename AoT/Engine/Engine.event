@@ -1,0 +1,42 @@
+// Engine changes for the Attack on Titan prologue.
+
+// Skip the Sacred Stones narrated introduction that plays before chapter 0
+// (GameCtrlStartIntroMonologue). Our chapter opens with Eren's narration instead.
+PUSH
+ORG 0x9E00
+SHORT 0x4770 // bx lr
+POP
+
+// ---------------------------------------------------------------- death quotes
+// Replace the vanilla defeat-quote list, so our characters never speak
+// Eirika's or Seth's lines. Losing Eren, Mikasa, Armin or Hannes ends the game
+// (event ID 0x65 triggers CauseGameOverIfLordDies in the chapter events).
+// Entry: SHORT pid; BYTE route chapter (0xFF = any); SHORT flag message; WORD event.
+PUSH
+ORG 0x8472C
+POIN AoT_DefeatTalkList
+POP
+
+ALIGN 4
+AoT_DefeatTalkList:
+SHORT AoT_Eren;     BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathEren;     WORD 0
+SHORT AoT_Mikasa;   BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathMikasa;   WORD 0
+SHORT AoT_Armin;    BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathArmin;    WORD 0
+SHORT AoT_Hannes;   BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathHannes;   WORD 0
+SHORT AoT_Garrison; BYTE 0xFF 0xFF; SHORT 0                AoT_DeathGarrison; WORD 0
+SHORT 0xFFFF;       BYTE 0 0;       SHORT 0 0;                                WORD 0
+
+// ---------------------------------------------------------------- ASMCs
+// Thumb routines called from events as ASMC Label|1. Sources are the .s files
+// next to this one (tools/asm.py turns them into the .dmp files).
+ALIGN 4
+AoT_ASMC_BoardCarried:
+#incbin "BoardCarried.dmp"
+
+ALIGN 4
+AoT_ASMC_Rescue:
+#incbin "Rescue.dmp"
+
+ALIGN 4
+AoT_ASMC_PlaceUnit:
+#incbin "PlaceUnit.dmp"

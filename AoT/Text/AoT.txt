@@ -1,0 +1,369 @@
+// Attack on Titan text. Included at the end of Text/text_buildfile.txt.
+// "## Name" entries get the next free text ID; Name becomes an EA definition.
+// Portrait IDs used in [LoadFace]: 0x02 Eren, 0x03 Mikasa, 0x04 Armin,
+// 0x05 Hannes, 0x06 Carla, 0x07 Garrison soldier.
+// Dialogue follows the first episodes of the anime closely but is written
+// from memory, so it paraphrases rather than quotes the script.
+
+// ---------------------------------------------------------------- names
+
+## AoT_NameEren
+Eren[X]
+
+## AoT_NameMikasa
+Mikasa[X]
+
+## AoT_NameArmin
+Armin[X]
+
+## AoT_NameHannes
+Hannes[X]
+
+## AoT_NameCarla
+Carla[X]
+
+## AoT_NameGarrison
+Garrison[X]
+
+## AoT_NameTownsperson
+Townsperson[X]
+
+## AoT_NameTitan
+Titan[X]
+
+## AoT_NameSmilingTitan
+Smiling Titan[X]
+
+## AoT_NameColossal
+Colossal Titan[X]
+
+## AoT_NameArmored
+Armored Titan[X]
+
+// ---------------------------------------------------------------- unit help text
+
+## AoT_DescEren
+A hot-blooded boy who dreams[NL]
+of the world beyond the Walls.[X]
+
+## AoT_DescMikasa
+Eren's adopted sister. Quiet,[NL]
+strong, and fiercely protective.[X]
+
+## AoT_DescArmin
+Eren's best friend. Timid but[NL]
+brilliant. Dreams of the ocean.[X]
+
+## AoT_DescHannes
+A Garrison soldier and old friend[NL]
+of the Yeagers. Fond of drink.[X]
+
+## AoT_DescCarla
+Eren's mother. Stern, warm,[NL]
+and unshakable.[X]
+
+## AoT_DescGarrison
+A soldier of the Garrison, the[NL]
+regiment that guards the Walls.[X]
+
+## AoT_DescTownsperson
+A resident of Shiganshina.[X]
+
+## AoT_DescTitan
+A man-eating giant. It feels no[NL]
+pain and its wounds close fast.[X]
+
+## AoT_DescSmilingTitan
+A Titan with a fixed, hideous[NL]
+smile. It moves without hurry.[X]
+
+## AoT_DescColossal
+A sixty-meter Titan that rose[NL]
+above Wall Maria without warning.[X]
+
+## AoT_DescArmored
+A Titan clad in hardened skin.[NL]
+Cannon fire does not stop it.[X]
+
+// ---------------------------------------------------------------- classes
+
+## AoT_ClassChild
+Civilian[X]
+
+## AoT_ClassChildDesc
+A child of Shiganshina. Cannot[NL]
+fight. Can only run.[X]
+
+## AoT_ClassGarrison
+Garrison[X]
+
+## AoT_ClassGarrisonDesc
+Soldiers who man the Walls.[NL]
+Armed with blades and cannon.[X]
+
+## AoT_ClassTitan
+Titan[X]
+
+## AoT_ClassTitanDesc
+Giants that devour people. Only[NL]
+a deep cut to the nape kills one.[X]
+
+## AoT_ClassColossal
+Colossal[X]
+
+## AoT_ClassArmored
+Armored[X]
+
+// ---------------------------------------------------------------- items
+
+## AoT_ItemBlade
+Garrison Blade[X]
+
+## AoT_ItemBladeDesc
+A soldier's sword. It can wound[NL]
+a Titan but rarely kill one.[X]
+
+## AoT_ItemGrasp
+Grasp[X]
+
+## AoT_ItemGraspDesc
+A Titan's crushing grip.[X]
+
+// ---------------------------------------------------------------- chapter
+
+## AoT_ChapterTitle
+The Fall of Shiganshina[X]
+
+## AoT_ObjectiveStatus
+Escape to the boats[X]
+
+## AoT_ObjectiveGoal
+Escape[X]
+
+## AoT_CaptionYear
+Year 845[X]
+
+## AoT_CaptionDistrict
+Shiganshina District[X]
+
+// ---------------------------------------------------------------- opening
+
+## AoT_IntroNarration
+[SetName]Eren[NL]
+That day, humanity received[NL]
+a grim reminder.[A][NL]
+We lived in fear of the Titans[A][NL]
+and in disgrace, inside the cages[NL]
+we called Walls.[A][X]
+
+## AoT_IntroWalls
+[SetName]Eren[NL]
+For a hundred years, three Walls[NL]
+kept the Titans out.[A][NL]
+Wall Maria. Wall Rose. Wall Sina.[A][NL]
+Fifty meters of stone between us[NL]
+and the giants that eat people.[A][NL]
+Shiganshina sat at the edge of[NL]
+Wall Maria. It was my home.[A][NL]
+Nobody there believed the Walls[NL]
+could ever fall.[A][X]
+
+## AoT_Riverside
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenFarRight][LoadFace][0x03][0x01][OpenMidLeft]My grandfather's book says most of the[NL]
+world outside the Walls is water![A][NL]
+A lake of salt so big that merchants[NL]
+could never sell all of it![A][OpenMidRight]A lake made of salt?[NL]
+Come on, Armin.[A][OpenMidLeft]It's true! And there's water made of[NL]
+fire, and plains of ice,[A][NL]
+and fields of sand as far as[NL]
+the eye can see![A][OpenMidRight][ToggleMouthMove]...[.][ToggleMouthMove][A][NL]
+I'm going to see all of it.[A][NL]
+I'm joining the Survey Corps.[A][OpenFarRight]Your mother will never allow it.[A][OpenMidRight]Whose fault is that?[NL]
+You're the one who told her, Mikasa![A][OpenMidLeft]Everyone acts like the Walls[NL]
+will protect us forever.[A][NL]
+But nothing says they'll last.[A][NL]
+A hundred years of peace doesn't[NL]
+mean today can't be different.[A][OpenMidRight]Tell that to the Garrison.[A][NL]
+They sit by the gate drinking[NL]
+all day.[A][NL]
+We're living like cattle in a pen,[NL]
+and everyone's fine with it.[A][X]
+
+## AoT_Quake
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenMidLeft]Wh-what was that?![A][OpenMidRight]Something hit the ground...[NL]
+Over by the gate![A][X]
+
+## AoT_ColossalSeen
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenFarRight][LoadFace][0x03][0x01][OpenMidLeft]That's... impossible...[A][NL]
+The Wall is fifty meters tall![A][OpenMidRight][ToggleMouthMove]...[.][ToggleMouthMove][A][NL]
+It's...[A][NL]
+It's a Titan...![A][X]
+
+## AoT_AfterKick
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenFarRight][LoadFace][0x03][0x01][OpenMidLeft]It kicked the gate in...[A][NL]
+There's a hole in the Wall![A][NL]
+The Titans... they'll get inside![A][OpenMidRight]Those boulders flew toward[NL]
+our street...[A][NL]
+Our house... Mom![A][OpenFarRight]Eren![A][OpenMidLeft]Eren! Mikasa![A][NL]
+I-I have to find Grandpa![A][NL]
+Meet me at the boats by the[NL]
+inner gate![A][X]
+
+## AoT_GarrisonAlarm
+[OpenMidLeft][LoadFace][0x07][0x01][OpenMidLeft]The outer gate's been breached![A][NL]
+Titans are coming through![A][NL]
+Everyone, get to the inner gate![NL]
+Board the boats and evacuate![A][X]
+
+## AoT_HowToHome
+Get Eren and Mikasa home to the[NL]
+Yeager house before the Titans do.[A][NL]
+Armin is searching for his[NL]
+grandfather. Lead him to the boats.[A][NL]
+Titans cannot be killed here.[NL]
+Do not let them catch anyone.[A][X]
+
+## AoT_RefuseEren
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft]Not without Mom![A][NL]
+I have to get home first![A][X]
+
+## AoT_RefuseMikasa
+[OpenMidLeft][LoadFace][0x03][0x01][OpenMidLeft]I'm not leaving without Eren.[A][X]
+
+// ---------------------------------------------------------------- the house
+
+## AoT_HouseArrive
+[OpenMidRight][LoadFace][0x06][0x01][OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft]Mom!![A][OpenMidRight]Eren...?[A][OpenMidLeft]Mikasa! Grab the other side![NL]
+We have to lift this beam![A][X]
+
+## AoT_HouseTrapped
+[OpenMidRight][LoadFace][0x06][0x01][OpenMidLeft][LoadFace][0x02][0x01][OpenFarLeft][LoadFace][0x03][0x01][OpenMidRight]My legs are crushed.[A][NL]
+Even if you pull me out,[NL]
+I can't run.[A][NL]
+Eren, take Mikasa and run.[NL]
+Now![A][OpenMidLeft]Then I'll carry you![NL]
+I'll run with you on my back![A][OpenMidRight]Why won't you ever listen to me?![A][NL]
+Just this once, do as I say![A][OpenFarLeft]...I don't want this...[A][X]
+
+## AoT_HannesArrives
+[OpenMidRight][LoadFace][0x06][0x01][OpenFarFarLeft][LoadFace][0x05][0x01][OpenFarFarLeft]Carla![A][OpenMidRight]Hannes! Take the children[NL]
+and run![A][OpenFarFarLeft]Don't underestimate me, Carla![A][NL]
+I'll kill that Titan and save[NL]
+all three of you![A][X]
+
+## AoT_HannesFreezes
+[OpenMidLeft][LoadFace][0x05][0x01][OpenMidLeft][ToggleMouthMove]...[.][ToggleMouthMove][A][NL]
+[ToggleMouthMove]...[.][ToggleMouthMove]I can't...[A][X]
+
+## AoT_HannesGrabs
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidRight][LoadFace][0x05][0x01][OpenMidLeft]Hannes?! What are you doing?![A][NL]
+Mom's still under there![A][OpenMidRight][ToggleMouthMove]...[.][ToggleMouthMove][A][X]
+
+## AoT_CarlaFarewell
+[OpenMidRight][LoadFace][0x06][0x01][OpenMidRight]Thank you...[A][NL]
+Eren! Mikasa![A][NL]
+You have to live![A][CloseSpeechSlow][OpenMidRight][ToggleMouthMove]...[.][ToggleMouthMove][A][NL]
+...Don't go...[A][X]
+
+## AoT_ErenScream
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft]MOOOM!!![A][X]
+
+## AoT_ErenAfter
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft]Stop it...[A][NL]
+STOP IT!!![A][X]
+
+## AoT_HannesAfter
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidRight][LoadFace][0x05][0x01][OpenFarRight][LoadFace][0x03][0x01][OpenMidRight]Eren... I'm sorry.[A][NL]
+I couldn't save your mother...[NL]
+because I was afraid.[A][NL]
+But you two are getting out of[NL]
+here. I swear it.[A][NL]
+The boats at the inner gate![NL]
+Stay with me![A][OpenFarRight]Eren. We have to go.[A][OpenMidLeft][ToggleMouthMove]...[.][ToggleMouthMove][A][X]
+
+## AoT_HowToEscape
+Move Eren, Mikasa, and Armin onto[NL]
+the evacuation boats at the docks.[A][NL]
+Hannes can carry one child with[NL]
+the Rescue command.[A][NL]
+Titans cannot be killed here.[NL]
+Do not let them catch you.[A][X]
+
+// ---------------------------------------------------------------- boarding
+
+## AoT_BoardArmin
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidLeft]Grandpa's aboard...[A][NL]
+Eren, Mikasa... please hurry![A][X]
+
+## AoT_BoardMikasa
+[OpenMidLeft][LoadFace][0x03][0x01][OpenMidLeft]I'm aboard.[A][NL]
+...Eren, hurry.[A][X]
+
+## AoT_BoardEren
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft][ToggleMouthMove]...[.][ToggleMouthMove][A][X]
+
+## AoT_BoardCarried
+[OpenMidLeft][LoadFace][0x05][0x01][OpenMidLeft]Get on the boat! Go![A][X]
+
+## AoT_HannesStays
+[OpenMidLeft][LoadFace][0x05][0x01][OpenMidLeft]I'm Garrison. My place is here.[A][NL]
+Get those kids aboard![A][X]
+
+// ---------------------------------------------------------------- ending
+
+## AoT_ArmoredWarning
+[OpenMidLeft][LoadFace][0x07][0x01][OpenMidLeft]Another one's coming![A][NL]
+It's charging straight for[NL]
+the inner gate!![A][NL]
+Cannons! Fire! FIRE!![A][X]
+
+## AoT_ArmoredNoEffect
+[OpenMidLeft][LoadFace][0x07][0x01][OpenMidLeft]It isn't even slowing down...![A][NL]
+The shells bounce right off it!![A][X]
+
+## AoT_WallFallen
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x03][0x01][OpenMidLeft]The inner gate...[A][NL]
+It broke through the inner gate...[A][NL]
+Wall Maria... has fallen...[A][NL]
+The Titans will flood everything[NL]
+inside it...[A][X]
+
+## AoT_ErenVow
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidRight][LoadFace][0x03][0x01][OpenMidLeft]I'll destroy them...[A][NL]
+Every last one of them...[A][NL]
+I'll wipe every Titan off the[NL]
+face of this world!![A][OpenMidRight]Eren...[A][X]
+
+## AoT_EndNarration
+[SetName]Eren[NL]
+Year 845. Wall Maria fell.[A][NL]
+Humanity lost a third of its land[NL]
+and was driven back behind[NL]
+Wall Rose.[A][NL]
+And on that boat, I swore it.[A][NL]
+I will kill every last Titan.[A][X]
+
+## AoT_ToBeContinued
+[SetName][NL]
+To be continued.[A][X]
+
+// ---------------------------------------------------------------- deaths
+
+## AoT_DeathEren
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidLeft]No... not like this...[A][NL]
+I never even saw... the outside...[A][X]
+
+## AoT_DeathMikasa
+[OpenMidLeft][LoadFace][0x03][0x01][OpenMidLeft]Eren...[A][NL]
+I'm sorry...[A][X]
+
+## AoT_DeathArmin
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidLeft]Eren... Mikasa...[A][NL]
+I'm sorry... I was too slow...[A][X]
+
+## AoT_DeathHannes
+[OpenMidLeft][LoadFace][0x05][0x01][OpenMidLeft]Carla... I'm sorry...[A][NL]
+I couldn't save them either...[A][X]
+
+## AoT_DeathGarrison
+[OpenMidLeft][LoadFace][0x07][0x01][OpenMidLeft]AAAAGH!![A][X]

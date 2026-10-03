@@ -1,0 +1,79 @@
+// IDs used by the Attack on Titan content. Vanilla slots are reused in place.
+
+// ---------------------------------------------------------------- characters
+#define AoT_Eren          0x01
+#define AoT_Mikasa        0x02
+#define AoT_Armin         0x03
+#define AoT_Hannes        0x04
+#define AoT_Carla         0x05
+#define AoT_Garrison      0x06  // generic Garrison soldier, shared by several units
+#define AoT_Titan         0x07  // generic Titan, shared by several units
+#define AoT_SmilingTitan  0x08
+#define AoT_Colossal      0x09
+#define AoT_Armored       0x0A
+#define AoT_Townsperson   0xFC  // generic citizen
+
+// ---------------------------------------------------------------- classes
+#define AoT_ClsEren       0x73
+#define AoT_ClsMikasa     0x74
+#define AoT_ClsArmin      0x75
+#define AoT_ClsGarrison   0x76
+#define AoT_ClsTitan      0x77
+#define AoT_ClsSmiling    0x79
+#define AoT_ClsColossal   0x7A
+#define AoT_ClsArmored    0x7C
+#define AoT_ClsTitanB     0x7D
+#define AoT_ClsCivilianF  0x6E  // vanilla civilian (female), used for Carla
+#define AoT_ClsCivilianM  0x6D  // vanilla civilian (male), used for townspeople
+
+// Standing map sprite slots (SMS). 0x78, 0x7B and 0x66-0x68 are avoided:
+// vanilla code or the Skill System treats them specially.
+#define AoT_SmsEren       0x62
+#define AoT_SmsMikasa     0x63
+#define AoT_SmsArmin      0x64
+#define AoT_SmsGarrison   0x65
+#define AoT_SmsTitan      0x4E
+#define AoT_SmsSmiling    0x4F
+#define AoT_SmsColossal   0x57
+#define AoT_SmsArmored    0x56
+#define AoT_SmsTitanB     0x54
+
+// ---------------------------------------------------------------- portraits
+#define AoT_MugEren       0x02
+#define AoT_MugMikasa     0x03
+#define AoT_MugArmin      0x04
+#define AoT_MugHannes     0x05
+#define AoT_MugCarla      0x06
+#define AoT_MugSoldier    0x07
+
+// ---------------------------------------------------------------- items
+#define AoT_ItemBladeID   0x05  // vanilla Iron Blade slot
+#define AoT_ItemGraspID   0xAE  // vanilla Fetid Claw slot
+
+// ---------------------------------------------------------------- music
+#define AoT_SongNarration 0x0D  // Truth, Despair, and Hope
+#define AoT_SongPeace     0x05  // Treasured Memories
+#define AoT_SongDread     0x11  // Shadows Approach
+#define AoT_SongAttack    0x16  // Twisted Shadows A
+#define AoT_SongEscape    0x14  // Assault
+#define AoT_SongLoss      0x29  // Sorrow
+#define AoT_SongArmored   0x1C  // Powerful Foe
+#define AoT_SongVow       0x28  // Indignation
+#define AoT_SongRaid      0x26  // Raid (player phase)
+#define AoT_SongSilence   0x7FFF
+
+// Sound effects
+#define AoT_SfxShatter    0x2D6 // stone shattering
+#define AoT_SfxDeath      0xD6  // battle death
+
+// ---------------------------------------------------------------- chapter flags
+// Temporary (chapter-local) event IDs.
+#define AoT_FlagHouseScene   0x0A
+#define AoT_FlagArminAboard  0x0B
+#define AoT_FlagMikasaAboard 0x0C
+#define AoT_FlagErenAboard   0x0D
+#define AoT_FlagHannesStays  0x0E
+#define AoT_FlagEnding       0x0F
+#define AoT_FlagErenRefused  0x10
+#define AoT_FlagMikasaRefused 0x11
+#define AoT_FlagGameOver     0x65   // vanilla game-over trigger

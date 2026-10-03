@@ -1,0 +1,544 @@
+// Chapter 0: The Fall of Shiganshina.
+//
+// Opening: Eren narrates over the opening art, then the riverside talk, the
+// Colossal Titan appears over Wall Maria and kicks in the outer gate.
+// Play: get Eren and Mikasa home (the house scene with Carla, Hannes and the
+// Smiling Titan plays when they arrive), then get all three children onto the
+// evacuation boats. Ending: the Armored Titan breaks the inner gate.
+//
+// Map: AoT/Maps/Shiganshina.tmx. Map changes: 0 gate breach, 1 Yeager house,
+// 2-4 other ruined houses, 5-8 wall debris in the streets.
+
+#define AoT_Pos(x, y) "((x) | ((y) << 16))"           // event slot B position
+#define AoT_Place(pid, x, y) "SVAL 2 pid; SVAL 0xB AoT_Pos(x, y); ASMC AoT_ASMC_PlaceUnit|1"
+#define AoT_Talk(msg) "TEXTSTART; TEXTSHOW msg; TEXTEND; REMA"
+#define AoT_Tutorial(msg) "TUTORIALTEXTBOXSTART; SVAL 0xB 0xFFFFFFFF; TEXTSHOW msg; TEXTEND; REMA"
+
+// ---------------------------------------------------------------- chapter data
+PUSH
+// Map music: player and green phases, enemy phase (the vanilla prologue's
+// other slots keep their values).
+ORG ChapterDataTable + 0x16
+SHORT AoT_SongRaid AoT_SongAttack AoT_SongRaid AoT_SongRaid AoT_SongAttack AoT_SongRaid AoT_SongRaid
+// Chapter name (drawn as text on the chapter intro by the Skill System).
+ORG ChapterDataTable + 0x70
+SHORT AoT_ChapterTitle AoT_ChapterTitle
+// No "victory is near" music; start from black.
+ORG ChapterDataTable + 0x86
+BYTE 0 1
+SHORT AoT_ObjectiveStatus AoT_ObjectiveGoal
+BYTE 4 0 0  // goal window: text only
+POP
+
+EventPointerTable(7, AoT_PrologueEvents)
+
+// No Sacred Stones world map narration before the chapter: chapter 0's world
+// map "beginning" event (Events_WM_Beginning[1], 0x8B39EC + 4) now only tells
+// the world map to skip itself. (The EA library's WorldMapPointerTable macro
+// is one slot off for FE8U, so this is written directly.)
+PUSH
+ORG 0x8B39F0
+POIN AoT_WMSkip
+POP
+
+ALIGN 4
+AoT_WMSkip:
+EVBIT_MODIFY 1
+_0xC220  // world map: no fade
+SKIPWN
+ENDA
+
+// Townspeople flee to the boats (green escape points for chapter 0).
+// Entry: x, y, facing (5 = none). 0xFF ends the list.
+PUSH
+ORG 0x5A828C
+POIN AoT_NPCEscapes
+POP
+
+ALIGN 4
+AoT_NPCEscapes:
+BYTE 0 25 5
+BYTE 13 25 5
+BYTE 0xFF 0 0
+
+ALIGN 4
+AoT_PrologueEvents:
+POIN AoT_TurnEvents
+POIN AoT_CharacterEvents
+POIN AoT_LocationEvents
+POIN AoT_MiscEvents
+POIN AoT_Dunno AoT_Dunno AoT_Dunno AoT_Tutorial
+POIN AoT_Traps AoT_Traps
+POIN AoT_Kids AoT_Kids
+POIN 0 0 0
+POIN 0 0 0
+POIN AoT_BeginningScene AoT_EndingScene
+
+// ---------------------------------------------------------------- event lists
+AoT_TurnEvents:
+TurnEventEnemy(0, AoT_Wave1, 1)
+TurnEventEnemy(0, AoT_Wave1, 2)
+TurnEventEnemy(0, AoT_Wave2, 3)
+TurnEventEnemy(0, AoT_Wave1, 4)
+TurnEventEnemy(0, AoT_Wave1, 5, 10)
+END_MAIN
+
+AoT_CharacterEvents:
+END_MAIN
+
+AoT_LocationEvents:
+END_MAIN
+
+AoT_MiscEvents:
+CauseGameOverIfLordDies
+AREA 0 AoT_HouseEvent [9,4] [15,9]
+AREA 0 AoT_BoardEvent [5,19] [8,25]
+AREA 0 AoT_BoardEvent [18,20] [20,25]
+END_MAIN
+
+AoT_Dunno:
+END_MAIN
+
+AoT_Tutorial:
+END_MAIN
+
+AoT_Traps:
+ENDTRAP
+ALIGN 4
+
+// ---------------------------------------------------------------- units
+// UNIT pid class leader level [x,y] flags [items] [AI]
+
+AoT_Kids:
+UNIT AoT_Armin  AoT_ClsArmin  0 Level(1,Ally,0) [3,5] 0 [0,0,0,0] [0,0,0,0]
+UNIT AoT_Eren   AoT_ClsEren   0 Level(1,Ally,0) [3,6] 0 [0,0,0,0] [0,0,0,0]
+UNIT AoT_Mikasa AoT_ClsMikasa 0 Level(1,Ally,0) [3,7] 0 [0,0,0,0] [0,0,0,0]
+UNIT
+
+// The first three stand where wall debris lands during the opening.
+#define AoT_Flee [0x06,0x0C,0,0]  // never attack, run to the escape points
+AoT_Town:
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [9,5]   0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [17,5]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [14,9]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [6,4]   0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [12,4]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [10,8]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [16,9]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [18,8]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [6,11]  0 [0,0,0,0] AoT_Flee
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [15,12] 0 [0,0,0,0] AoT_Flee
+UNIT AoT_Garrison AoT_ClsGarrison 0 Level(3,NPC,0) [14,4] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
+UNIT AoT_Garrison AoT_ClsGarrison 0 Level(3,NPC,0) [16,5] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
+UNIT AoT_Garrison AoT_ClsGarrison 0 Level(3,NPC,0) [18,6] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
+UNIT
+
+AoT_ColossalUnit:
+UNIT AoT_Colossal AoT_ClsColossal 0 Level(20,Enemy,0) [16,2] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT
+
+// Titans come through the breach in the outer gate and walk in.
+AoT_FirstTitans:
+UNIT AoT_Titan AoT_ClsTitan  0 Level(10,Enemy,0) [16,0] 0 1 AoT_RedaA [AoT_ItemGraspID,0,0,0] [0,0,0,0]
+UNIT AoT_Titan AoT_ClsTitanB 0 Level(10,Enemy,0) [17,0] 0 1 AoT_RedaB [AoT_ItemGraspID,0,0,0] [0,0,0,0]
+UNIT
+
+AoT_Wave1:
+LOAD1 0 AoT_WaveOne
+ENUN
+NoFade
+ENDA
+
+AoT_Wave2:
+LOAD1 0 AoT_FirstTitans
+ENUN
+NoFade
+ENDA
+
+AoT_WaveOne:
+UNIT AoT_Titan AoT_ClsTitanB 0 Level(10,Enemy,0) [17,0] 0 1 AoT_RedaB [AoT_ItemGraspID,0,0,0] [0,0,0,0]
+UNIT
+
+ALIGN 4
+AoT_RedaA:
+REDA [16,3]
+AoT_RedaB:
+REDA [17,2]
+
+AoT_CarlaUnit:
+UNIT AoT_Carla AoT_ClsCivilianF 0 Level(1,NPC,0) [12,8] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT
+
+// The Smiling Titan waits one turn (it is busy with Carla), then gives chase.
+AoT_SmilingUnit:
+UNIT AoT_SmilingTitan AoT_ClsSmiling 0 Level(10,Enemy,0) [20,6] 0 1 AoT_RedaSmiling [AoT_ItemGraspID,0,0,0] [0x03,0x12,0,0]
+UNIT
+
+ALIGN 4
+AoT_RedaSmiling:
+REDA [16,8]
+
+AoT_HannesUnit:
+UNIT AoT_Hannes AoT_ClsGarrison 0 Level(5,Ally,0) [8,4] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
+UNIT
+
+// Ending: the crowd on the boat and the Garrison at the inner gate.
+AoT_EndingCrowd:
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [7,20] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [8,20] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [5,21] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [6,21] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Townsperson AoT_ClsCivilianM 0 Level(1,NPC,0) [7,21] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Townsperson AoT_ClsCivilianF 0 Level(1,NPC,0) [6,22] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Garrison AoT_ClsGarrison 0 Level(3,NPC,0) [12,14] 0 [AoT_ItemBladeID,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Garrison AoT_ClsGarrison 0 Level(3,NPC,0) [14,14] 0 [AoT_ItemBladeID,0,0,0] [0x06,0x03,0,0]
+UNIT
+
+AoT_ArmoredUnit:
+UNIT AoT_Armored AoT_ClsArmored 0 Level(20,Enemy,0) [17,1] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT
+
+// ---------------------------------------------------------------- opening
+AoT_BeginningScene:
+// "That day, humanity received a grim reminder."
+CGTEXTSTART
+BACG 0
+MUSC AoT_SongNarration
+FADU 16
+TEXTSHOW AoT_IntroNarration
+TEXTEND
+TEXTSHOW AoT_IntroWalls
+TEXTEND
+FADI 16
+REMA
+TEXTSTART
+CLEAN
+
+// Shiganshina, year 845. The children by the river.
+LOAD1 0 AoT_Kids
+LOAD1 0 AoT_Town
+ENUN
+CAMERA [3,6]
+MUSC AoT_SongPeace
+FADU 16
+BROWNBOX AoT_CaptionYear [8,8]
+BROWNBOX AoT_CaptionDistrict [8,8]
+AoT_Talk(AoT_Riverside)
+
+// The ground shakes. A flash of light at the gate.
+MUSC AoT_SongSilence
+EARTHQUAKE 0 1
+STAL 40
+FAWI 64
+FAWU 16
+EARTHQUAKE_END
+AoT_Talk(AoT_Quake)
+
+// The Colossal Titan looks over Wall Maria.
+EVBIT_T 9
+CAMERA [16,1]
+STAL 20
+FAWI 64
+LOAD_CUTSCENE AoT_ColossalUnit
+ENUN
+AoT_Place(AoT_Colossal, 16, 1)
+FAWU 16
+MUSC AoT_SongDread
+STAL 30
+AoT_Talk(AoT_ColossalSeen)
+
+// It kicks in the outer gate. Debris rains on the town.
+FAWI 64
+TILECHANGE 0
+FAWU 16
+SOUN AoT_SfxShatter
+EARTHQUAKE 0 1
+CAMERA_CENTERED [12,6]
+STAL 20
+TILECHANGE 3
+STAL 10
+TILECHANGE 6
+SVAL 0xB AoT_Pos(9, 5)
+KILL 0xFFFE
+STAL 10
+TILECHANGE 5
+SVAL 0xB AoT_Pos(17, 5)
+KILL 0xFFFE
+STAL 10
+TILECHANGE 4
+STAL 10
+TILECHANGE 1
+TILECHANGE 2
+STAL 10
+TILECHANGE 7
+SVAL 0xB AoT_Pos(14, 9)
+KILL 0xFFFE
+TILECHANGE 8
+STAL 30
+EARTHQUAKE_END
+
+// The Colossal Titan vanishes in a burst of steam. The first Titans walk in.
+CAMERA [16,1]
+STAL 20
+FAWI 32
+REMOVEUNIT AoT_Colossal
+FAWU 8
+MUSC AoT_SongAttack
+LOAD1 0 AoT_FirstTitans
+ENUN
+CAMERA [3,6]
+AoT_Talk(AoT_AfterKick)
+CAMERA [14,4]
+AoT_Talk(AoT_GarrisonAlarm)
+
+// What to do.
+CAMERA_CENTERED [8,6]
+CURSOR_FLASHING [12,7]
+AoT_Tutorial(AoT_HowToHome)
+REMOVE_CURSORS
+CAMERA [3,6]
+MUSC AoT_SongRaid
+// Debug: define AoT_DEBUG_PLAYTHROUGH to run the house scene, the boarding and
+// the ending straight after the opening (for headless smoke tests).
+#ifdef AoT_DEBUG_PLAYTHROUGH
+MOVE 0 AoT_Eren [11,8]
+ENUN
+SET_ACTIVE AoT_Eren
+CALL AoT_HouseEvent
+SET_ACTIVE AoT_Armin
+CALL AoT_BoardEvent
+SET_ACTIVE AoT_Mikasa
+CALL AoT_BoardEvent
+SET_ACTIVE AoT_Hannes
+CALL AoT_BoardEvent
+#endif
+NoFade
+ENDA
+
+// ---------------------------------------------------------------- the house
+// Plays once, when Eren or Mikasa reaches the Yeager house.
+AoT_HouseEvent:
+CHECK_EVENTID AoT_FlagHouseScene
+BNE 99 0xC 0x0
+CHECK_ACTIVE
+SVAL 1 AoT_Eren
+BEQ 1 0xC 0x1
+SVAL 1 AoT_Mikasa
+BEQ 2 0xC 0x1
+GOTO 99
+
+// Whoever arrived first, the other runs to join them.
+LABEL 1
+MOVE_NEXTTO 0 AoT_Mikasa AoT_Eren
+GOTO 3
+LABEL 2
+MOVE_NEXTTO 0 AoT_Eren AoT_Mikasa
+LABEL 3
+ENUN
+ENUT AoT_FlagHouseScene
+EVBIT_T 9
+
+// Carla, trapped under the house.
+FADI 16
+LOAD1 0 AoT_CarlaUnit
+ENUN
+AoT_Place(AoT_Carla, 12, 7)
+CAMERA_CENTERED [12,7]
+FADU 16
+AoT_Talk(AoT_HouseArrive)
+AoT_Talk(AoT_HouseTrapped)
+
+// A Titan turns into the street.
+MUSC AoT_SongDread
+EARTHQUAKE 1 0
+LOAD1 0 AoT_SmilingUnit
+ENUN
+EARTHQUAKE_END
+
+// Hannes comes running.
+LOAD1 0 AoT_HannesUnit
+ENUN
+MOVE_NEXTTO 0 AoT_Hannes AoT_Carla
+ENUN
+AoT_Talk(AoT_HannesArrives)
+MOVE_NEXTTO 0 AoT_Hannes AoT_SmilingTitan
+ENUN
+AoT_Talk(AoT_HannesFreezes)
+
+// He grabs Eren and runs. Mikasa follows.
+MOVE_NEXTTO 0 AoT_Hannes AoT_Eren
+ENUN
+SVAL 2 AoT_Hannes
+SVAL 3 AoT_Eren
+ASMC AoT_ASMC_Rescue|1
+AoT_Talk(AoT_HannesGrabs)
+MOVE_CLOSEST 0 AoT_Hannes [12,14]
+ENUN
+MOVE_NEXTTO 0 AoT_Mikasa AoT_Hannes
+ENUN
+AoT_Talk(AoT_CarlaFarewell)
+
+// The Smiling Titan.
+MOVE_NEXTTO 0 AoT_SmilingTitan AoT_Carla
+ENUN
+AoT_Talk(AoT_ErenAfter)
+STARTFADE
+FADECOLORS 0x2000 32 0x180 0x40 0x40
+SOUN AoT_SfxDeath
+KILL AoT_Carla
+AWAIT_KILL AoT_Carla
+FADECOLORS 0x2000 8 0x100 0x100 0x100
+ENDFADE
+AoT_Talk(AoT_ErenScream)
+MUSC AoT_SongLoss
+AoT_Talk(AoT_HannesAfter)
+AoT_Tutorial(AoT_HowToEscape)
+MUSC AoT_SongRaid
+
+LABEL 99
+NoFade
+ENDA
+
+// ---------------------------------------------------------------- the boats
+// Runs when anyone ends a move on a boat deck.
+AoT_BoardEvent:
+CHECK_ACTIVE
+SADD 5 0xC 0x0
+SVAL 1 AoT_Hannes
+BNE 10 0x5 0x1
+
+// Hannes puts whoever he carries on the boat. He stays behind himself.
+ASMC AoT_ASMC_BoardCarried|1
+BEQ 11 0xC 0x0
+SADD 2 0xC 0x0
+AoT_Talk(AoT_BoardCarried)
+CALL AoT_BoardChild
+GOTO 99
+LABEL 11
+CHECK_EVENTID AoT_FlagHannesStays
+BNE 99 0xC 0x0
+ENUT AoT_FlagHannesStays
+AoT_Talk(AoT_HannesStays)
+GOTO 99
+
+// The children. Eren and Mikasa will not leave before they have been home.
+LABEL 10
+SVAL 1 AoT_Armin
+BEQ 20 0x5 0x1
+SVAL 1 AoT_Eren
+BEQ 21 0x5 0x1
+SVAL 1 AoT_Mikasa
+BEQ 21 0x5 0x1
+GOTO 99
+
+LABEL 21
+CHECK_EVENTID AoT_FlagHouseScene
+BNE 20 0xC 0x0
+SVAL 1 AoT_Eren
+BNE 22 0x5 0x1
+AoT_Talk(AoT_RefuseEren)
+GOTO 99
+LABEL 22
+AoT_Talk(AoT_RefuseMikasa)
+GOTO 99
+
+LABEL 20
+REMU 0xFFFF
+SADD 2 0x5 0x0
+CALL AoT_BoardChild
+
+LABEL 99
+NoFade
+ENDA
+
+// Slot 2: the child who just boarded. Starts the ending once all three are aboard.
+AoT_BoardChild:
+SVAL 1 AoT_Armin
+BNE 31 0x2 0x1
+ENUT AoT_FlagArminAboard
+AoT_Talk(AoT_BoardArmin)
+GOTO 39
+LABEL 31
+SVAL 1 AoT_Mikasa
+BNE 32 0x2 0x1
+ENUT AoT_FlagMikasaAboard
+AoT_Talk(AoT_BoardMikasa)
+GOTO 39
+LABEL 32
+SVAL 1 AoT_Eren
+BNE 39 0x2 0x1
+ENUT AoT_FlagErenAboard
+AoT_Talk(AoT_BoardEren)
+LABEL 39
+CHECK_EVENTID AoT_FlagArminAboard
+BEQ 38 0xC 0x0
+CHECK_EVENTID AoT_FlagMikasaAboard
+BEQ 38 0xC 0x0
+CHECK_EVENTID AoT_FlagErenAboard
+BEQ 38 0xC 0x0
+CALL AoT_EndingScene
+LABEL 38
+ENDA
+
+// ---------------------------------------------------------------- ending
+AoT_EndingScene:
+ENUT AoT_FlagEnding
+FADI 16
+CLEA 0
+CLEN 0
+CLEE 0
+REVEAL AoT_Eren
+REVEAL AoT_Mikasa
+REVEAL AoT_Armin
+REVEAL AoT_Hannes
+AoT_Place(AoT_Eren, 6, 19)
+AoT_Place(AoT_Mikasa, 7, 19)
+AoT_Place(AoT_Armin, 6, 20)
+AoT_Place(AoT_Hannes, 12, 20)
+LOAD1 0 AoT_EndingCrowd
+ENUN
+CAMERA_CENTERED [9,17]
+FADU 16
+
+// The Armored Titan charges the inner gate.
+MUSC AoT_SongArmored
+EVBIT_T 9
+LOAD_CUTSCENE AoT_ArmoredUnit
+ENUN
+AoT_Talk(AoT_ArmoredWarning)
+EARTHQUAKE 0 1
+STAL 20
+EARTHQUAKE_END
+MOVE 0 AoT_Armored [13,14]
+ENUN
+EARTHQUAKE 0 1
+STAL 20
+EARTHQUAKE_END
+AoT_Talk(AoT_ArmoredNoEffect)
+MOVE 0 AoT_Armored [13,21]
+ENUN
+SOUN AoT_SfxShatter
+EARTHQUAKE 0 1
+FAWI 64
+REMOVEUNIT AoT_Armored
+FAWU 16
+STAL 30
+EARTHQUAKE_END
+MUSC AoT_SongLoss
+AoT_Talk(AoT_WallFallen)
+MUSC AoT_SongVow
+AoT_Talk(AoT_ErenVow)
+
+// "Year 845. Wall Maria fell."
+FADI 16
+REMA
+CGTEXTSTART
+BACG 0
+FADU 16
+TEXTSHOW AoT_EndNarration
+TEXTEND
+TEXTSHOW AoT_ToBeContinued
+TEXTEND
+FADI 8
+MNTS 0
+ENDA

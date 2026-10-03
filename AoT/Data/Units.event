@@ -1,0 +1,67 @@
+// Characters, classes, items, and skills for the Shiganshina prologue.
+// Vanilla table slots are overwritten in place. The IDs are listed in AoT/AoT.event.
+
+// Character entry, 52 bytes (FE8U CharacterData).
+// Ranks: sword lance axe bow staff anima light dark. Growths: hp str skl spd def res lck.
+#define AoTCharacter(id, name, desc, cls, mug, lv, hp, str, skl, spd, def, res, lck, con, sword, gHP, gStr, gSkl, gSpd, gDef, gRes, gLck, attr) "PUSH; ORG CharacterTable + (id) * 52; SHORT name desc; BYTE id cls; SHORT mug; BYTE 0 0 id lv hp str skl spd def res lck con sword 0 0 0 0 0 0 0 gHP gStr gSkl gSpd gDef gRes gLck 0 0 0 0 0; WORD attr 0; BYTE 0 0 0 0; POP"
+
+// Class entry, 84 bytes (FE8U ClassData). Stats come from the characters, so bases are 0.
+#define AoTClass(id, name, desc, sms, mov, conCap, sword, anims, movecost, rain, snow, attr, type) "PUSH; ORG ClassTable + (id) * 84; SHORT name desc; BYTE id 0 sms 0; SHORT 0; BYTE 0 0 0 0 0 0 0 0 mov 60 30 30 30 30 30 conCap 1 0 0 0 0 0 0 0 0 0 0 0 0 0; WORD attr; BYTE sword 0 0 0 0 0 0 0; WORD anims movecost rain snow 0x880c479 0x880c4ba 0x880c4fb type; POP"
+
+// Item entry, 36 bytes (FE8U ItemData).
+#define AoTItem(id, name, desc, type, attr, uses, mt, hit, wt, crit, range, rank, icon, wexp) "PUSH; ORG ItemTable + (id) * 36; SHORT name desc 0; BYTE id type; WORD attr 0 0; BYTE uses mt hit wt crit range; SHORT 0; BYTE rank icon 0 0 wexp 0 0 0; POP"
+
+// ---------------------------------------------------------------- classes
+// Move-cost tables from vanilla: civilians 0x880BA51, infantry 0x880B849.
+
+AoTClass(AoT_ClsEren,     AoT_ClassChild,    AoT_ClassChildDesc,    AoT_SmsEren,     5, 10, NoRank, 0, 0x880BA51, 0x880BEA2, 0x880C2B2, 0, 0)
+AoTClass(AoT_ClsMikasa,   AoT_ClassChild,    AoT_ClassChildDesc,    AoT_SmsMikasa,   5, 10, NoRank, 0, 0x880BA51, 0x880BEA2, 0x880C2B2, 0, 0)
+AoTClass(AoT_ClsArmin,    AoT_ClassChild,    AoT_ClassChildDesc,    AoT_SmsArmin,    5, 10, NoRank, 0, 0x880BA51, 0x880BEA2, 0x880C2B2, 0, 0)
+AoTClass(AoT_ClsGarrison, AoT_ClassGarrison, AoT_ClassGarrisonDesc, AoT_SmsGarrison, 5, 20, DRank,  0, 0x880B849, 0x880BC9A, 0x880C0AA, 0, SwordType)
+AoTClass(AoT_ClsTitan,    AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsTitan,    4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+AoTClass(AoT_ClsSmiling,  AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsSmiling,  4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+AoTClass(AoT_ClsColossal, AoT_ClassColossal, AoT_DescColossal,      AoT_SmsColossal, 0, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+AoTClass(AoT_ClsArmored,  AoT_ClassArmored,  AoT_DescArmored,       AoT_SmsArmored,  8, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+AoTClass(AoT_ClsTitanB,   AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsTitanB,   4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+
+// Titans regenerate (Renewal: 30% of max HP at the start of each turn).
+PUSH
+ORG ClassSkillTable + AoT_ClsTitan;    BYTE RenewalID
+ORG ClassSkillTable + AoT_ClsSmiling;  BYTE RenewalID
+ORG ClassSkillTable + AoT_ClsTitanB;   BYTE RenewalID
+ORG ClassSkillTable + AoT_ClsColossal; BYTE RenewalID
+ORG ClassSkillTable + AoT_ClsArmored;  BYTE RenewalID
+ORG ClassSkillTable + AoT_ClsEren;     BYTE 0
+ORG ClassSkillTable + AoT_ClsMikasa;   BYTE 0
+ORG ClassSkillTable + AoT_ClsArmin;    BYTE 0
+ORG ClassSkillTable + AoT_ClsGarrison; BYTE 0
+POP
+
+// ---------------------------------------------------------------- characters
+//            id                name                    desc                    class            mug          lv  hp str skl spd def res lck con sword  growths            attributes
+AoTCharacter(AoT_Eren,         AoT_NameEren,           AoT_DescEren,           AoT_ClsEren,     AoT_MugEren,    1, 18, 4, 3, 6, 2, 1, 6, 6, NoRank, 70, 45, 35, 45, 30, 20, 40, 0)
+AoTCharacter(AoT_Mikasa,       AoT_NameMikasa,         AoT_DescMikasa,         AoT_ClsMikasa,   AoT_MugMikasa,  1, 21, 7, 8, 9, 4, 2, 6, 6, NoRank, 75, 55, 60, 60, 35, 25, 40, IsFemale)
+AoTCharacter(AoT_Armin,        AoT_NameArmin,          AoT_DescArmin,          AoT_ClsArmin,    AoT_MugArmin,   1, 15, 2, 4, 6, 1, 4, 5, 6, NoRank, 50, 25, 45, 45, 20, 35, 45, 0)
+AoTCharacter(AoT_Hannes,       AoT_NameHannes,         AoT_DescHannes,         AoT_ClsGarrison, AoT_MugHannes,  5, 30, 9, 8, 7, 6, 2, 3, 11, DRank, 80, 45, 45, 40, 35, 20, 30, 0)
+AoTCharacter(AoT_Carla,        AoT_NameCarla,          AoT_DescCarla,          AoT_ClsCivilianF,AoT_MugCarla,   1, 12, 1, 1, 1, 1, 1, 5, 5, NoRank, 0, 0, 0, 0, 0, 0, 0, IsFemale)
+AoTCharacter(AoT_Garrison,     AoT_NameGarrison,       AoT_DescGarrison,       AoT_ClsGarrison, AoT_MugSoldier, 3, 22, 6, 6, 6, 4, 1, 2, 10, DRank, 0, 0, 0, 0, 0, 0, 0, 0)
+AoTCharacter(AoT_Titan,        AoT_NameTitan,          AoT_DescTitan,          AoT_ClsTitan,    0,             10, 60, 18, 4, 3, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_SmilingTitan, AoT_NameSmilingTitan,   AoT_DescSmilingTitan,   AoT_ClsSmiling,  0,             10, 60, 18, 5, 4, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Colossal,     AoT_NameColossal,       AoT_DescColossal,       AoT_ClsColossal, 0,             20, 60, 30, 5, 0, 20, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Armored,      AoT_NameArmored,        AoT_DescArmored,        AoT_ClsArmored,  0,             20, 60, 25, 8, 6, 30, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Townsperson,  AoT_NameTownsperson,    AoT_DescTownsperson,    0x6D,            0,              1, 10, 1, 1, 3, 0, 0, 3, 6, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+
+// Hannes keeps the Lethality skill idea for later chapters; here he only carries kids.
+PUSH
+ORG PersonalSkillTable + AoT_Eren;     BYTE 0
+ORG PersonalSkillTable + AoT_Mikasa;   BYTE 0
+ORG PersonalSkillTable + AoT_Armin;    BYTE 0
+ORG PersonalSkillTable + AoT_Hannes;   BYTE 0
+ORG PersonalSkillTable + AoT_Carla;    BYTE 0
+ORG PersonalSkillTable + AoT_Garrison; BYTE 0
+POP
+
+// ---------------------------------------------------------------- items
+//      id               name            desc                type  attributes                                  uses mt hit wt crit range rank   icon wexp
+AoTItem(AoT_ItemBladeID, AoT_ItemBlade,  AoT_ItemBladeDesc,  0x0,  IsWeapon,                                    40,  6, 85, 3, 5,  0x11, ERank, 0x4, 1)
+AoTItem(AoT_ItemGraspID, AoT_ItemGrasp,  AoT_ItemGraspDesc,  0xB,  IsWeapon|Indestructible|MonsterWeapon,       0,  14, 70, 10, 0, 0x11, NoRank, 0xD2, 0)

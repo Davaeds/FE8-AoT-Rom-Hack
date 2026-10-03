@@ -1,0 +1,33 @@
+// Portraits. Each PNG is a 128x112, 16-colour "hackbox" sheet (main portrait,
+// mouth frames, eye frames, minimug), converted by PortraitFormatter at build time.
+// setMugEntry(mug, data, mouthX, mouthY, eyeX, eyeY): positions are in tiles.
+
+ALIGN 4
+AoT_MugEren_Data:
+#incext PortraitFormatter "Portraits/Eren.png"
+setMugEntry(AoT_MugEren, AoT_MugEren_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugMikasa_Data:
+#incext PortraitFormatter "Portraits/Mikasa.png"
+setMugEntry(AoT_MugMikasa, AoT_MugMikasa_Data, 4, 6, 3, 4)
+
+ALIGN 4
+AoT_MugArmin_Data:
+#incext PortraitFormatter "Portraits/Armin.png"
+setMugEntry(AoT_MugArmin, AoT_MugArmin_Data, 4, 6, 3, 3)
+
+ALIGN 4
+AoT_MugHannes_Data:
+#incext PortraitFormatter "Portraits/Hannes.png"
+setMugEntry(AoT_MugHannes, AoT_MugHannes_Data, 4, 6, 3, 4)
+
+ALIGN 4
+AoT_MugCarla_Data:
+#incext PortraitFormatter "Portraits/Carla.png"
+setMugEntry(AoT_MugCarla, AoT_MugCarla_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugSoldier_Data:
+#incext PortraitFormatter "Portraits/Soldier.png"
+setMugEntry(AoT_MugSoldier, AoT_MugSoldier_Data, 4, 6, 3, 4)

@@ -39,6 +39,16 @@ export PATH="$tools/venv/bin:$PATH"
 
 mkdir -p "$out"
 log="$out/build.log"
+
+if [ "${1:-}" != quick ]; then
+  # AoT maps: Tiled .tmx -> EA installer + map data, next to each .tmx (gitignored).
+  echo "Processing AoT maps"
+  for tmx in "$root"/AoT/Maps/*.tmx; do
+    python3 "$root/Tools/tmx2ea/tmx2ea.py" "$tmx" ||
+      die "tmx2ea failed on $tmx"
+  done
+fi
+
 "$root/MakeHack.sh" "$@" 2>&1 | tee "$log"
 
 # MakeHack.sh exits 0 even when assembly fails (the ROM is then an unmodified

@@ -72,3 +72,7 @@ Temporary Items
 # AoT build pipeline
 /.tools/
 /build/
+
+# AoT generated files (build.sh recreates them)
+/AoT/Maps/*.event
+/AoT/Maps/*_data.dmp
