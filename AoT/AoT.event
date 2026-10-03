@@ -10,6 +10,7 @@
 #include "Graphics/Title.event"
 #include "Graphics/MenuBackground.event"
 #include "Graphics/MenuPlates.event"
+#include "Graphics/ChapterIntro.event"
 #include "Engine/Engine.event"
 #include "Maps/Shiganshina.event"
 #include "Events/Prologue.event"

@@ -1,0 +1,29 @@
+# Screens for a release: title, menus, the chapter card with its steam,
+# Eren's narration and the first map.
+wait 560
+shot 00_title
+wait 40
+press START
+wait 400
+shot 01_main_menu
+press A
+wait 120
+shot 02_mode_select
+press A
+wait 120
+shot 03_save_slot
+press A
+wait 400
+shot 04_chapter_card
+wait 20
+press START
+wait 300
+shot 05_narration
+press START
+wait 300
+press START
+wait 300
+shot 06_preparations
+press START
+wait 300
+shot 07_map
