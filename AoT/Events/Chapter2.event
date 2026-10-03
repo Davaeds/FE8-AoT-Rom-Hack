@@ -1,0 +1,176 @@
+// Chapter 2 (FE8 chapter slot 1): The 104th Cadet Corps.
+//
+// Opening: Armin narrates the years after Shiganshina; Instructor Shadis opens
+// the final field exam in the forest.
+// Play: cut down every wooden Titan dummy. Cadets fly over trees and cliffs on
+// ODM gear (flier move costs); a rival cadet squad competes for the dummies.
+// Ending: graduation, the top ten, and the Colossal Titan's return at Trost.
+//
+// Map: vanilla map 92 (forest with cliffs, 30x21) with its own tileset and
+// palette, so nothing new is stored for it.
+
+// ---------------------------------------------------------------- chapter data
+PUSH
+ORG ChapterDataTable + 148 + 4
+BYTE 1 0 91 3 92 5 0 93         // objects, palette, tileset, map, anims, map changes (as vanilla chapter data entry 20)
+ORG ChapterDataTable + 148 + 0x16
+SHORT AoT_SongRaid AoT_SongRaid AoT_SongRaid AoT_SongRaid AoT_SongRaid AoT_SongRaid AoT_SongRaid
+ORG ChapterDataTable + 148 + 0x70
+SHORT AoT_C2Title AoT_C2Title
+ORG ChapterDataTable + 148 + 0x86
+BYTE 0 1
+SHORT AoT_C2ObjectiveStatus AoT_C2ObjectiveGoal
+BYTE 4 0 0
+POP
+
+EventPointerTable(10, AoT_C2Events)
+
+// No world map narration before this chapter either (Events_WM_Beginning[2]).
+PUSH
+ORG 0x8B39F4
+POIN AoT_WMSkip
+POP
+
+ALIGN 4
+AoT_C2Events:
+POIN AoT_C2Turns
+POIN AoT_C2Characters
+POIN AoT_C2Locations
+POIN AoT_C2Misc
+POIN AoT_C2Empty AoT_C2Empty AoT_C2Empty AoT_C2Empty
+POIN AoT_C2Traps AoT_C2Traps
+POIN AoT_C2Squad AoT_C2Squad
+POIN 0 0 0
+POIN 0 0 0
+POIN AoT_C2BeginningScene AoT_C2EndingScene
+
+// ---------------------------------------------------------------- event lists
+AoT_C2Turns:
+TurnEventPlayer(AoT_FlagRivals, AoT_C2RivalsTalk, 3)
+// Debug: with AoT_DEBUG_PLAYTHROUGH the ending plays as soon as turn 1 starts.
+#ifdef AoT_DEBUG_PLAYTHROUGH
+TurnEventPlayer(0, AoT_C2EndingScene, 1)
+#endif
+END_MAIN
+
+AoT_C2Characters:
+END_MAIN
+
+AoT_C2Locations:
+END_MAIN
+
+AoT_C2Misc:
+CauseGameOverIfLordDies
+DefeatAll(AoT_C2EndingScene)
+END_MAIN
+
+AoT_C2Empty:
+END_MAIN
+
+AoT_C2Traps:
+ENDTRAP
+ALIGN 4
+
+// ---------------------------------------------------------------- units
+// Three years of training: the squad auto-levels from the character bases.
+AoT_C2Squad:
+UNIT AoT_Eren   AoT_ClsCadetEren   0 Level(5,Ally,1) [6,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_Mikasa AoT_ClsCadetMikasa 0 Level(6,Ally,1) [7,8] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_Armin  AoT_ClsCadetArmin  0 Level(4,Ally,1) [5,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_Jean   AoT_ClsCadetJean   0 Level(5,Ally,1) [6,8] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT
+
+// The rival squad sweeps in from the south-east.
+AoT_C2Rivals:
+UNIT AoT_Cadet AoT_ClsCadet 0 Level(3,NPC,1) [26,19] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_Cadet AoT_ClsCadet 0 Level(3,NPC,1) [27,19] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_Cadet AoT_ClsCadet 0 Level(3,NPC,1) [28,19] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT
+
+AoT_C2Dummies:
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [11,2]  0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [17,3]  0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [9,5]   0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [19,6]  0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [22,8]  0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [24,10] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [28,11] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [19,13] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [10,13] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [27,15] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [23,18] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [7,17]  0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [12,19] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT
+
+AoT_C2ShadisUnit:
+UNIT AoT_Shadis AoT_ClsCadet 0 Level(10,NPC,0) [8,9] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT
+
+// ---------------------------------------------------------------- opening
+AoT_C2BeginningScene:
+// Armin: the years after Wall Maria fell.
+CGTEXTSTART
+BACG 0
+MUSC AoT_SongNarration
+FADU 16
+TEXTSHOW AoT_C2Narration
+TEXTEND
+FADI 16
+REMA
+TEXTSTART
+CLEAN
+
+// The squad that came through Shiganshina is gone; three years later they
+// are cadets with new stats and gear.
+ASMC AoT_ASMC_ClearPlayers|1
+LOAD1 0 AoT_C2Squad
+LOAD1 0 AoT_C2Dummies
+LOAD1 0 AoT_C2Rivals
+LOAD1 0 AoT_C2ShadisUnit
+ENUN
+CAMERA [4,6]
+MUSC AoT_SongPeace
+FADU 16
+BROWNBOX AoT_C2CaptionYear [8,8]
+BROWNBOX AoT_C2CaptionPlace [8,8]
+AoT_Talk(AoT_C2Briefing)
+AoT_Talk(AoT_C2Banter)
+REMOVEUNIT AoT_Shadis
+
+CAMERA_CENTERED [11,5]
+CURSOR_FLASHING [9,5]
+AoT_Tutorial(AoT_C2HowTo)
+REMOVE_CURSORS
+CAMERA [4,6]
+MUSC AoT_SongRaid
+NoFade
+ENDA
+
+AoT_C2RivalsTalk:
+CAMERA [20,14]
+STAL 20
+CAMERA [4,6]
+AoT_Talk(AoT_C2RivalsLine)
+NoFade
+ENDA
+
+// ---------------------------------------------------------------- ending
+AoT_C2EndingScene:
+MUSC AoT_SongPeace
+AoT_Talk(AoT_C2ExamOver)
+
+// Graduation and the top ten, then Trost.
+MUSC AoT_SongNarration
+FADI 16
+REMA
+CGTEXTSTART
+BACG 0
+FADU 16
+TEXTSHOW AoT_C2Graduation
+TEXTEND
+TEXTSHOW AoT_ToBeContinued
+TEXTEND
+FADI 8
+MNTS 0
+ENDA

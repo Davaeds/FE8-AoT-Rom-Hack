@@ -12,6 +12,10 @@
 #define AoT_Colossal      0x09
 #define AoT_Armored       0x0A
 #define AoT_Townsperson   0xFC  // generic citizen
+#define AoT_Jean          0x0B
+#define AoT_Shadis        0x0C
+#define AoT_Cadet         0x0D  // generic 104th cadet, shared by several units
+#define AoT_Dummy         0x0E  // wooden Titan training dummy, shared
 
 // ---------------------------------------------------------------- classes
 #define AoT_ClsEren       0x73
@@ -27,6 +31,13 @@
 #define AoT_ClsCarla      0x70  // vanilla civilian-variant slot; gives Carla her own map sprite
 #define AoT_ClsCivilianF  0x6E  // vanilla civilian (female), used for townswomen
 #define AoT_ClsCivilianM  0x6D  // vanilla civilian (male), used for townspeople
+// Chapter 2 (104th Cadet Corps). Vanilla Mercenary/Myrmidon/Archer slots.
+#define AoT_ClsCadetEren   0x0F
+#define AoT_ClsCadetMikasa 0x10
+#define AoT_ClsCadetArmin  0x13
+#define AoT_ClsCadetJean   0x14
+#define AoT_ClsCadet       0x19
+#define AoT_ClsDummy       0x1A
 
 // Standing map sprite slots (SMS). 0x78, 0x7B and 0x66-0x68 are avoided:
 // vanilla code or the Skill System treats them specially.
@@ -43,6 +54,12 @@
 #define AoT_SmsCarla      0x53
 #define AoT_SmsTownsman   0x5E  // vanilla civilian (male) slot
 #define AoT_SmsTownswoman 0x5F  // vanilla civilian (female) slot
+#define AoT_SmsCadetEren   0x58
+#define AoT_SmsCadetMikasa 0x59
+#define AoT_SmsCadetArmin  0x5A
+#define AoT_SmsCadetJean   0x5B
+#define AoT_SmsCadet       0x5C
+#define AoT_SmsDummy       0x5D
 
 // ---------------------------------------------------------------- portraits
 #define AoT_MugEren       0x02
@@ -51,10 +68,14 @@
 #define AoT_MugHannes     0x05
 #define AoT_MugCarla      0x06
 #define AoT_MugSoldier    0x07
+#define AoT_MugShadis     0x08
+#define AoT_MugJean       0x09
 
 // ---------------------------------------------------------------- items
 #define AoT_ItemBladeID   0x05  // vanilla Iron Blade slot
 #define AoT_ItemGraspID   0xAE  // vanilla Fetid Claw slot
+#define AoT_ItemTrainingID 0x06 // vanilla Steel Blade slot
+#define AoT_ItemDummyArmID 0xAF // vanilla Fiery Fang slot
 
 // ---------------------------------------------------------------- music
 #define AoT_SongNarration 0x0D  // Truth, Despair, and Hope
@@ -83,3 +104,6 @@
 #define AoT_FlagErenRefused  0x10
 #define AoT_FlagMikasaRefused 0x11
 #define AoT_FlagGameOver     0x65   // vanilla game-over trigger
+// Chapter 2
+#define AoT_FlagRivals       0x0A
+#define AoT_FlagHalfway      0x0B

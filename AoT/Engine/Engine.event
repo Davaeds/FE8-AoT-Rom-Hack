@@ -40,3 +40,7 @@ AoT_ASMC_Rescue:
 ALIGN 4
 AoT_ASMC_PlaceUnit:
 #incbin "PlaceUnit.dmp"
+
+ALIGN 4
+AoT_ASMC_ClearPlayers:
+#incbin "ClearPlayers.dmp"

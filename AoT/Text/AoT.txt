@@ -367,3 +367,146 @@ I couldn't save them either...[A][X]
 
 ## AoT_DeathGarrison
 [OpenMidLeft][LoadFace][0x07][0x01][OpenMidLeft]AAAAGH!![A][X]
+
+// ================================================================ chapter 2
+// Portrait IDs: 0x08 Shadis, 0x09 Jean.
+
+## AoT_NameJean
+Jean[X]
+
+## AoT_NameShadis
+Shadis[X]
+
+## AoT_NameCadet
+Cadet[X]
+
+## AoT_NameDummy
+Titan Dummy[X]
+
+## AoT_DescJean
+A sharp-tongued cadet who wants[NL]
+a safe post in the interior.[X]
+
+## AoT_DescShadis
+Chief instructor of the[NL]
+104th Cadet Corps.[X]
+
+## AoT_DescCadet
+A trainee of the 104th[NL]
+Cadet Corps.[X]
+
+## AoT_DescDummy
+A wooden Titan for practice.[NL]
+Its nape is the target.[X]
+
+## AoT_ClassCadet
+Cadet[X]
+
+## AoT_ClassCadetDesc
+Trainee soldier with ODM gear.[NL]
+Flies over trees and cliffs.[X]
+
+## AoT_ClassDummy
+Dummy[X]
+
+## AoT_ClassDummyDesc
+Spring-loaded arms swing at[NL]
+anyone who comes too close.[X]
+
+## AoT_ItemTraining
+Training Blade[X]
+
+## AoT_ItemTrainingDesc
+A cadet's practice blade. Light[NL]
+and sharp enough for wood.[X]
+
+## AoT_ItemDummyArm
+Swinging Arm[X]
+
+## AoT_ItemDummyArmDesc
+A sprung wooden arm.[X]
+
+## AoT_C2Title
+The 104th Cadet Corps[X]
+
+## AoT_C2ObjectiveStatus
+Cut down every dummy[X]
+
+## AoT_C2ObjectiveGoal
+Rout[X]
+
+## AoT_C2CaptionYear
+Year 850[X]
+
+## AoT_C2CaptionPlace
+Training Grounds[X]
+
+## AoT_C2Graduation
+[SetName]Armin[NL]
+That spring, the 104th Cadet[NL]
+Corps graduated.[A][NL]
+The top ten, in order:[NL]
+Mikasa Ackerman. Reiner Braun.[A][NL]
+Bertholdt Hoover. Annie Leonhart.[NL]
+Eren Yeager. Jean Kirstein.[A][NL]
+Marco Bott. Connie Springer.[NL]
+Sasha Blouse. Krista Lenz.[A][NL]
+The top ten could join the[NL]
+Military Police, safe inside.[A][NL]
+Eren chose the Survey Corps[NL]
+instead.[A][NL]
+Days later, we were on cannon[NL]
+duty atop the wall at Trost.[A][NL]
+Then a red hand gripped the[NL]
+wall beside us.[A][NL]
+Five years after Shiganshina...[NL]
+it was back.[A][X]
+
+## AoT_C2Narration
+[SetName]Armin[NL]
+Two years after Wall Maria fell,[NL]
+the three of us enlisted.[A][NL]
+Eren wanted one thing: to fight[NL]
+the Titans.[A][NL]
+Mikasa went wherever Eren went.[A][NL]
+And I... couldn't let them go[NL]
+alone.[A][NL]
+Three years of training later,[NL]
+one test was left.[A][X]
+
+## AoT_C2Briefing
+[OpenMidLeft][LoadFace][0x08][0x01][OpenMidLeft]Listen up, cadets![A][NL]
+This is your final field exam.[A][NL]
+The forest is full of Titan[NL]
+dummies. Every one has a nape.[A][NL]
+Cut it. Deep and clean.[A][NL]
+A real Titan will not give you[NL]
+a second chance. Neither will I![A][NL]
+Begin!![A][X]
+
+## AoT_C2Banter
+[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenMidLeft]Hey, Yeager. Try not to fly[NL]
+into a tree this time.[A][OpenMidRight]Worry about yourself, Jean![A][NL]
+[OpenFarRight][LoadFace][0x03][0x01][OpenFarRight]Eren. Focus.[A][NL]
+[OpenFarLeft][LoadFace][0x04][0x01][OpenFarLeft]The other squads are already[NL]
+moving in from the south.[A][NL]
+If we want the top scores,[NL]
+we have to hurry![A][X]
+
+## AoT_C2HowTo
+Cut down every Titan dummy.[A][NL]
+Cadets fly over trees and cliffs[NL]
+with their ODM gear.[A][NL]
+Dummies swing their arms at[NL]
+anyone standing next to them.[A][NL]
+A rival squad is after the same[NL]
+dummies. Beat them to it![A][X]
+
+## AoT_C2RivalsLine
+[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenMidLeft]Tch! They're taking all the[NL]
+good ones!![A][OpenMidRight]Then stop talking and move![A][X]
+
+## AoT_C2ExamOver
+[OpenMidLeft][LoadFace][0x08][0x01][OpenMidLeft]Enough! The exam is over![A][NL]
+[ToggleMouthMove]...[.][ToggleMouthMove][A][NL]
+Not bad, cadets.[A][X]

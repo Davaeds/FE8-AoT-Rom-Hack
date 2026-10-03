@@ -14,3 +14,4 @@
 #include "Engine/Engine.event"
 #include "Maps/Shiganshina.event"
 #include "Events/Prologue.event"
+#include "Events/Chapter2.event"

@@ -124,3 +124,54 @@ AoT_SetMMS(AoT_ClsTitanB,   AoT_MMS_TitanB)
 AoT_SetMMS(AoT_ClsSmiling,  AoT_MMS_Smiling)
 AoT_SetMMS(AoT_ClsColossal, AoT_MMS_Colossal)
 AoT_SetMMS(AoT_ClsArmored,  AoT_MMS_Armored)
+
+// Chapter 2: 104th cadets and the training dummy.
+ALIGN 4
+AoT_SMS_CadetEren:
+#incext Png2Dmp "MapSprites/cadet_eren_sms.png" --lz77
+ALIGN 4
+AoT_MMS_CadetEren:
+#incext Png2Dmp "MapSprites/cadet_eren_mms.png" --lz77
+ALIGN 4
+AoT_SMS_CadetMikasa:
+#incext Png2Dmp "MapSprites/cadet_mikasa_sms.png" --lz77
+ALIGN 4
+AoT_MMS_CadetMikasa:
+#incext Png2Dmp "MapSprites/cadet_mikasa_mms.png" --lz77
+ALIGN 4
+AoT_SMS_CadetArmin:
+#incext Png2Dmp "MapSprites/cadet_armin_sms.png" --lz77
+ALIGN 4
+AoT_MMS_CadetArmin:
+#incext Png2Dmp "MapSprites/cadet_armin_mms.png" --lz77
+ALIGN 4
+AoT_SMS_CadetJean:
+#incext Png2Dmp "MapSprites/cadet_jean_sms.png" --lz77
+ALIGN 4
+AoT_MMS_CadetJean:
+#incext Png2Dmp "MapSprites/cadet_jean_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Cadet:
+#incext Png2Dmp "MapSprites/cadet_cadet_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Cadet:
+#incext Png2Dmp "MapSprites/cadet_cadet_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Dummy:
+#incext Png2Dmp "MapSprites/dummy_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Dummy:
+#incext Png2Dmp "MapSprites/dummy_mms.png" --lz77
+
+AoT_SetSMS(AoT_SmsCadetEren, 1, AoT_SMS_CadetEren)
+AoT_SetSMS(AoT_SmsCadetMikasa, 1, AoT_SMS_CadetMikasa)
+AoT_SetSMS(AoT_SmsCadetArmin, 1, AoT_SMS_CadetArmin)
+AoT_SetSMS(AoT_SmsCadetJean, 1, AoT_SMS_CadetJean)
+AoT_SetSMS(AoT_SmsCadet, 1, AoT_SMS_Cadet)
+AoT_SetSMS(AoT_SmsDummy, 1, AoT_SMS_Dummy)
+AoT_SetMMS(AoT_ClsCadetEren, AoT_MMS_CadetEren)
+AoT_SetMMS(AoT_ClsCadetMikasa, AoT_MMS_CadetMikasa)
+AoT_SetMMS(AoT_ClsCadetArmin, AoT_MMS_CadetArmin)
+AoT_SetMMS(AoT_ClsCadetJean, AoT_MMS_CadetJean)
+AoT_SetMMS(AoT_ClsCadet, AoT_MMS_Cadet)
+AoT_SetMMS(AoT_ClsDummy, AoT_MMS_Dummy)

@@ -26,6 +26,14 @@ AoTClass(AoT_ClsColossal, AoT_ClassColossal, AoT_DescColossal,      AoT_SmsColos
 AoTClass(AoT_ClsArmored,  AoT_ClassArmored,  AoT_DescArmored,       AoT_SmsArmored,  8, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
 AoTClass(AoT_ClsTitanB,   AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsTitanB,   4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
 
+// Chapter 2: cadets fly through the trees on ODM gear (vanilla flier move costs).
+AoTClass(AoT_ClsCadetEren,   AoT_ClassCadet, AoT_ClassCadetDesc, AoT_SmsCadetEren,   6, 20, ERank, 0, 0x880BB96, 0x880BFE7, 0x880C3F7, 0, SwordType)
+AoTClass(AoT_ClsCadetMikasa, AoT_ClassCadet, AoT_ClassCadetDesc, AoT_SmsCadetMikasa, 6, 20, ERank, 0, 0x880BB96, 0x880BFE7, 0x880C3F7, 0, SwordType)
+AoTClass(AoT_ClsCadetArmin,  AoT_ClassCadet, AoT_ClassCadetDesc, AoT_SmsCadetArmin,  6, 20, ERank, 0, 0x880BB96, 0x880BFE7, 0x880C3F7, 0, SwordType)
+AoTClass(AoT_ClsCadetJean,   AoT_ClassCadet, AoT_ClassCadetDesc, AoT_SmsCadetJean,   6, 20, ERank, 0, 0x880BB96, 0x880BFE7, 0x880C3F7, 0, SwordType)
+AoTClass(AoT_ClsCadet,       AoT_ClassCadet, AoT_ClassCadetDesc, AoT_SmsCadet,       6, 20, ERank, 0, 0x880BB96, 0x880BFE7, 0x880C3F7, 0, SwordType)
+AoTClass(AoT_ClsDummy,       AoT_ClassDummy, AoT_ClassDummyDesc, AoT_SmsDummy,       0, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
+
 // Titans regenerate (Renewal: 30% of max HP at the start of each turn).
 PUSH
 ORG ClassSkillTable + AoT_ClsTitan;    BYTE RenewalID
@@ -39,6 +47,12 @@ ORG ClassSkillTable + AoT_ClsArmin;    BYTE 0
 ORG ClassSkillTable + AoT_ClsGarrison; BYTE 0
 ORG ClassSkillTable + AoT_ClsHannes;   BYTE 0
 ORG ClassSkillTable + AoT_ClsCarla;    BYTE 0
+ORG ClassSkillTable + AoT_ClsCadetEren;   BYTE 0
+ORG ClassSkillTable + AoT_ClsCadetMikasa; BYTE 0
+ORG ClassSkillTable + AoT_ClsCadetArmin;  BYTE 0
+ORG ClassSkillTable + AoT_ClsCadetJean;   BYTE 0
+ORG ClassSkillTable + AoT_ClsCadet;       BYTE 0
+ORG ClassSkillTable + AoT_ClsDummy;       BYTE 0
 POP
 
 // ---------------------------------------------------------------- characters
@@ -53,6 +67,10 @@ AoTCharacter(AoT_Titan,        AoT_NameTitan,          AoT_DescTitan,          A
 AoTCharacter(AoT_SmilingTitan, AoT_NameSmilingTitan,   AoT_DescSmilingTitan,   AoT_ClsSmiling,  0,             10, 60, 18, 5, 4, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 AoTCharacter(AoT_Colossal,     AoT_NameColossal,       AoT_DescColossal,       AoT_ClsColossal, 0,             20, 60, 30, 5, 0, 20, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 AoTCharacter(AoT_Armored,      AoT_NameArmored,        AoT_DescArmored,        AoT_ClsArmored,  0,             20, 60, 25, 8, 6, 30, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Jean,         AoT_NameJean,           AoT_DescJean,           AoT_ClsCadetJean, AoT_MugJean,  1, 22, 7, 7, 7, 5, 1, 4, 8, ERank, 75, 45, 45, 45, 35, 20, 35, 0)
+AoTCharacter(AoT_Shadis,       AoT_NameShadis,         AoT_DescShadis,         AoT_ClsCadet,    AoT_MugShadis,  10, 40, 14, 12, 10, 10, 4, 5, 12, DRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Cadet,        AoT_NameCadet,          AoT_DescCadet,          AoT_ClsCadet,    0,              1, 18, 5, 5, 6, 3, 1, 3, 7, ERank, 0, 0, 0, 0, 0, 0, 0, 0)
+AoTCharacter(AoT_Dummy,        AoT_NameDummy,          AoT_DescDummy,          AoT_ClsDummy,    0,              1, 14, 3, 2, 0, 2, 0, 0, 20, NoRank, 0, 0, 0, 0, 0, 0, 0, 0)
 AoTCharacter(AoT_Townsperson,  AoT_NameTownsperson,    AoT_DescTownsperson,    0x6D,            0,              1, 10, 1, 1, 3, 0, 0, 3, 6, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 
 // Hannes keeps the Lethality skill idea for later chapters; here he only carries kids.
@@ -63,9 +81,15 @@ ORG PersonalSkillTable + AoT_Armin;    BYTE 0
 ORG PersonalSkillTable + AoT_Hannes;   BYTE 0
 ORG PersonalSkillTable + AoT_Carla;    BYTE 0
 ORG PersonalSkillTable + AoT_Garrison; BYTE 0
+ORG PersonalSkillTable + AoT_Jean;     BYTE 0
+ORG PersonalSkillTable + AoT_Shadis;   BYTE 0
+ORG PersonalSkillTable + AoT_Cadet;    BYTE 0
+ORG PersonalSkillTable + AoT_Dummy;    BYTE 0
 POP
 
 // ---------------------------------------------------------------- items
 //      id               name            desc                type  attributes                                  uses mt hit wt crit range rank   icon wexp
 AoTItem(AoT_ItemBladeID, AoT_ItemBlade,  AoT_ItemBladeDesc,  0x0,  IsWeapon,                                    40,  6, 85, 3, 5,  0x11, ERank, 0x4, 1)
 AoTItem(AoT_ItemGraspID, AoT_ItemGrasp,  AoT_ItemGraspDesc,  0xB,  IsWeapon|Indestructible|MonsterWeapon,       0,  14, 70, 10, 0, 0x11, NoRank, 0xD2, 0)
+AoTItem(AoT_ItemTrainingID, AoT_ItemTraining, AoT_ItemTrainingDesc, 0x0, IsWeapon,                           30,  5, 90, 2, 5,  0x11, ERank, 0x4, 1)
+AoTItem(AoT_ItemDummyArmID, AoT_ItemDummyArm, AoT_ItemDummyArmDesc, 0xB, IsWeapon|Indestructible|MonsterWeapon, 0, 4, 55, 5, 0,  0x11, NoRank, 0xD2, 0)

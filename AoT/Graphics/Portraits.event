@@ -31,3 +31,8 @@ ALIGN 4
 AoT_MugSoldier_Data:
 #incext PortraitFormatter "Portraits/Soldier.png"
 setMugEntry(AoT_MugSoldier, AoT_MugSoldier_Data, 4, 6, 3, 4)
+
+// Chapter 2. TEMPORARY: Shadis and Jean borrow the Garrison soldier's face
+// until their own portraits are drawn.
+setMugEntry(AoT_MugShadis, AoT_MugSoldier_Data, 4, 6, 3, 4)
+setMugEntry(AoT_MugJean, AoT_MugSoldier_Data, 4, 6, 3, 4)

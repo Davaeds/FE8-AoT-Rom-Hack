@@ -200,6 +200,11 @@ UNIT
 
 // ---------------------------------------------------------------- opening
 AoT_BeginningScene:
+// Debug: define AoT_DEBUG_CH2 to jump straight to chapter 2.
+#ifdef AoT_DEBUG_CH2
+MNC2 1
+ENDA
+#endif
 // "That day, humanity received a grim reminder."
 CGTEXTSTART
 BACG 0
@@ -537,8 +542,6 @@ BACG 0
 FADU 16
 TEXTSHOW AoT_EndNarration
 TEXTEND
-TEXTSHOW AoT_ToBeContinued
-TEXTEND
 FADI 8
-MNTS 0
+MNC2 1
 ENDA

@@ -13,7 +13,7 @@ from PIL import Image
 from render import to_idx, colorize as colorize0
 from sheets import place_bottom, save_png, blit, OUT
 from tkit import mirror, preview
-import titans, colossal, adults, townsfolk
+import titans, colossal, adults, townsfolk, cadets
 from make_kids import kid_frames, nod, hop
 
 
@@ -63,6 +63,18 @@ for who, name in (('man', 'townsman'), ('woman', 'townswoman'), ('carla', 'carla
     sms, left, down, up, sel = human_frames(townsfolk.FRAMES[who], townsfolk.COLORS[who])
     save(stack(sms, 16, 32, 8), f'{name}_sms', 2)
     save(stack(left + down + up + sel, 32, 32, 16), f'{name}_mms', 2)
+
+# 104th cadets (chapter 2): 16x32 SMS
+for who in ('eren', 'mikasa', 'armin', 'jean', 'cadet'):
+    sms, left, down, up, sel = human_frames(cadets.FRAMES[who], cadets.COLORS[who])
+    save(stack(sms, 16, 32, 8), f'cadet_{who}_sms', 0)
+    save(stack(left + down + up + sel, 32, 32, 16), f'cadet_{who}_mms', 0)
+
+# Titan training dummy: it never moves, so every frame is the same pose
+d = to_idx(cadets.DUMMY, cadets.DUMMY_COLORS)
+db = to_idx(cadets.DUMMY_BACK, cadets.DUMMY_COLORS)
+save(stack([d, d, d], 16, 32, 8), 'dummy_sms', 1)
+save(stack([d] * 8 + [db] * 4 + [d] * 3, 32, 32, 16), 'dummy_mms', 1)
 
 # Titans: 32x32 SMS, frames already 32x32
 for name, t in (('titan_a', titans.titan_a()), ('titan_b', titans.titan_b()),
