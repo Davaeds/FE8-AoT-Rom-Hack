@@ -24,7 +24,8 @@
 #define AoT_ClsArmored    0x7C
 #define AoT_ClsTitanB     0x7D
 #define AoT_ClsHannes     0x6F  // vanilla civilian-variant slot; gives Hannes his own map sprite
-#define AoT_ClsCivilianF  0x6E  // vanilla civilian (female), used for Carla
+#define AoT_ClsCarla      0x70  // vanilla civilian-variant slot; gives Carla her own map sprite
+#define AoT_ClsCivilianF  0x6E  // vanilla civilian (female), used for townswomen
 #define AoT_ClsCivilianM  0x6D  // vanilla civilian (male), used for townspeople
 
 // Standing map sprite slots (SMS). 0x78, 0x7B and 0x66-0x68 are avoided:
@@ -39,6 +40,9 @@
 #define AoT_SmsArmored    0x56
 #define AoT_SmsTitanB     0x54
 #define AoT_SmsHannes     0x55
+#define AoT_SmsCarla      0x53
+#define AoT_SmsTownsman   0x5E  // vanilla civilian (male) slot
+#define AoT_SmsTownswoman 0x5F  // vanilla civilian (female) slot
 
 // ---------------------------------------------------------------- portraits
 #define AoT_MugEren       0x02

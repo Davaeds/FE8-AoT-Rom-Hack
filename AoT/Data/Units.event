@@ -19,6 +19,7 @@ AoTClass(AoT_ClsMikasa,   AoT_ClassChild,    AoT_ClassChildDesc,    AoT_SmsMikas
 AoTClass(AoT_ClsArmin,    AoT_ClassChild,    AoT_ClassChildDesc,    AoT_SmsArmin,    5, 10, NoRank, 0, 0x880BA51, 0x880BEA2, 0x880C2B2, 0, 0)
 AoTClass(AoT_ClsGarrison, AoT_ClassGarrison, AoT_ClassGarrisonDesc, AoT_SmsGarrison, 5, 20, DRank,  0, 0x880B849, 0x880BC9A, 0x880C0AA, 0, SwordType)
 AoTClass(AoT_ClsHannes,   AoT_ClassGarrison, AoT_ClassGarrisonDesc, AoT_SmsHannes,   5, 20, DRank,  0, 0x880B849, 0x880BC9A, 0x880C0AA, 0, SwordType)
+AoTClass(AoT_ClsCarla,    0x305,             0x351,                 AoT_SmsCarla,    5, 10, NoRank, 0, 0x880BA51, 0x880BEA2, 0x880C2B2, 0, 0)  // vanilla "Civilian" name and description
 AoTClass(AoT_ClsTitan,    AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsTitan,    4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
 AoTClass(AoT_ClsSmiling,  AoT_ClassTitan,    AoT_ClassTitanDesc,    AoT_SmsSmiling,  4, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
 AoTClass(AoT_ClsColossal, AoT_ClassColossal, AoT_DescColossal,      AoT_SmsColossal, 0, 30, NoRank, 0, 0x880B849, 0x880BC9A, 0x880C0AA, UseMonsterWeapons, MonsterType)
@@ -37,6 +38,7 @@ ORG ClassSkillTable + AoT_ClsMikasa;   BYTE 0
 ORG ClassSkillTable + AoT_ClsArmin;    BYTE 0
 ORG ClassSkillTable + AoT_ClsGarrison; BYTE 0
 ORG ClassSkillTable + AoT_ClsHannes;   BYTE 0
+ORG ClassSkillTable + AoT_ClsCarla;    BYTE 0
 POP
 
 // ---------------------------------------------------------------- characters
@@ -45,7 +47,7 @@ AoTCharacter(AoT_Eren,         AoT_NameEren,           AoT_DescEren,           A
 AoTCharacter(AoT_Mikasa,       AoT_NameMikasa,         AoT_DescMikasa,         AoT_ClsMikasa,   AoT_MugMikasa,  1, 21, 7, 8, 9, 4, 2, 6, 6, NoRank, 75, 55, 60, 60, 35, 25, 40, IsFemale)
 AoTCharacter(AoT_Armin,        AoT_NameArmin,          AoT_DescArmin,          AoT_ClsArmin,    AoT_MugArmin,   1, 15, 2, 4, 6, 1, 4, 5, 6, NoRank, 50, 25, 45, 45, 20, 35, 45, 0)
 AoTCharacter(AoT_Hannes,       AoT_NameHannes,         AoT_DescHannes,         AoT_ClsHannes,   AoT_MugHannes,  5, 30, 9, 8, 7, 6, 2, 3, 11, DRank, 80, 45, 45, 40, 35, 20, 30, 0)
-AoTCharacter(AoT_Carla,        AoT_NameCarla,          AoT_DescCarla,          AoT_ClsCivilianF,AoT_MugCarla,   1, 12, 1, 1, 1, 1, 1, 5, 5, NoRank, 0, 0, 0, 0, 0, 0, 0, IsFemale)
+AoTCharacter(AoT_Carla,        AoT_NameCarla,          AoT_DescCarla,          AoT_ClsCarla,    AoT_MugCarla,   1, 12, 1, 1, 1, 1, 1, 5, 5, NoRank, 0, 0, 0, 0, 0, 0, 0, IsFemale)
 AoTCharacter(AoT_Garrison,     AoT_NameGarrison,       AoT_DescGarrison,       AoT_ClsGarrison, AoT_MugSoldier, 3, 22, 6, 6, 6, 4, 1, 2, 10, DRank, 0, 0, 0, 0, 0, 0, 0, 0)
 AoTCharacter(AoT_Titan,        AoT_NameTitan,          AoT_DescTitan,          AoT_ClsTitan,    0,             10, 60, 18, 4, 3, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 AoTCharacter(AoT_SmilingTitan, AoT_NameSmilingTitan,   AoT_DescSmilingTitan,   AoT_ClsSmiling,  0,             10, 60, 18, 5, 4, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)

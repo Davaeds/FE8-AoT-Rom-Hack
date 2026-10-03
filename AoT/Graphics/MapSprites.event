@@ -78,11 +78,33 @@ AoT_MMS_Armored:
 #incext Png2Dmp "MapSprites/armored_mms.png" --lz77
 ALIGN 4
 
+AoT_SMS_Townsman:
+#incext Png2Dmp "MapSprites/townsman_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Townsman:
+#incext Png2Dmp "MapSprites/townsman_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Townswoman:
+#incext Png2Dmp "MapSprites/townswoman_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Townswoman:
+#incext Png2Dmp "MapSprites/townswoman_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Carla:
+#incext Png2Dmp "MapSprites/carla_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Carla:
+#incext Png2Dmp "MapSprites/carla_mms.png" --lz77
+ALIGN 4
+
 AoT_SetSMS(AoT_SmsEren,     0, AoT_SMS_Eren)
 AoT_SetSMS(AoT_SmsMikasa,   0, AoT_SMS_Mikasa)
 AoT_SetSMS(AoT_SmsArmin,    0, AoT_SMS_Armin)
 AoT_SetSMS(AoT_SmsGarrison, 1, AoT_SMS_Garrison)
 AoT_SetSMS(AoT_SmsHannes,   1, AoT_SMS_Hannes)
+AoT_SetSMS(AoT_SmsCarla,    1, AoT_SMS_Carla)
+AoT_SetSMS(AoT_SmsTownsman, 1, AoT_SMS_Townsman)
+AoT_SetSMS(AoT_SmsTownswoman, 1, AoT_SMS_Townswoman)
 AoT_SetSMS(AoT_SmsTitan,    2, AoT_SMS_TitanA)
 AoT_SetSMS(AoT_SmsTitanB,   2, AoT_SMS_TitanB)
 AoT_SetSMS(AoT_SmsSmiling,  2, AoT_SMS_Smiling)
@@ -94,6 +116,9 @@ AoT_SetMMS(AoT_ClsMikasa,   AoT_MMS_Mikasa)
 AoT_SetMMS(AoT_ClsArmin,    AoT_MMS_Armin)
 AoT_SetMMS(AoT_ClsGarrison, AoT_MMS_Garrison)
 AoT_SetMMS(AoT_ClsHannes,   AoT_MMS_Hannes)
+AoT_SetMMS(AoT_ClsCarla,    AoT_MMS_Carla)
+AoT_SetMMS(AoT_ClsCivilianM, AoT_MMS_Townsman)
+AoT_SetMMS(AoT_ClsCivilianF, AoT_MMS_Townswoman)
 AoT_SetMMS(AoT_ClsTitan,    AoT_MMS_TitanA)
 AoT_SetMMS(AoT_ClsTitanB,   AoT_MMS_TitanB)
 AoT_SetMMS(AoT_ClsSmiling,  AoT_MMS_Smiling)

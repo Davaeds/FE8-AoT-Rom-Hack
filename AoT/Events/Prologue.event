@@ -166,7 +166,7 @@ AoT_RedaB:
 REDA [17,2]
 
 AoT_CarlaUnit:
-UNIT AoT_Carla AoT_ClsCivilianF 0 Level(1,NPC,0) [12,8] 0 [0,0,0,0] [0x06,0x03,0,0]
+UNIT AoT_Carla AoT_ClsCarla 0 Level(1,NPC,0) [12,8] 0 [0,0,0,0] [0x06,0x03,0,0]
 UNIT
 
 // The Smiling Titan waits one turn (it is busy with Carla), then gives chase.
