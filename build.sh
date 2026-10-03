@@ -49,6 +49,11 @@ if [ "${1:-}" != quick ]; then
   done
 fi
 
+# Menu button plates (AoT/Graphics/MenuPlates.event) are made from the clean ROM
+# at build time, so the vanilla graphics they start from are never committed.
+python3 "$root/tools/menuplates.py" "$clean" "$out/gen" ||
+  die "tools/menuplates.py failed"
+
 "$root/MakeHack.sh" "$@" 2>&1 | tee "$log"
 
 # MakeHack.sh exits 0 even when assembly fails (the ROM is then an unmodified

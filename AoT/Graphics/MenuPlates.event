@@ -1,0 +1,27 @@
+// Menu button plates without the Sacred Stones dragons: the title menu, the
+// difficulty select and the save files. build.sh makes these sheets from the
+// clean ROM with tools/menuplates.py (they also hold the vanilla button labels,
+// so they are never committed).
+
+ALIGN 4
+AoT_PlatesTitleMenu:
+#incbin "../../build/gen/plates_8A26A74.dmp"
+ALIGN 4
+AoT_PlatesDifficulty:
+#incbin "../../build/gen/plates_8A28A0C.dmp"
+ALIGN 4
+AoT_PlatesSaveMenu:
+#incbin "../../build/gen/plates_8A2D32C.dmp"
+ALIGN 4
+AoT_PlatesSaveSlot:
+#incbin "../../build/gen/plates_8A09E4C.dmp"
+ALIGN 4
+
+PUSH
+ORG 0xA8EDC; POIN AoT_PlatesTitleMenu
+ORG 0xAA43C; POIN AoT_PlatesTitleMenu
+ORG 0xAC188; POIN AoT_PlatesDifficulty
+ORG 0x8E088; POIN AoT_PlatesSaveMenu
+ORG 0xAF7D0; POIN AoT_PlatesSaveMenu
+ORG 0x896A4; POIN AoT_PlatesSaveSlot
+POP

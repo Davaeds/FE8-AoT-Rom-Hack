@@ -1,0 +1,20 @@
+# Boot to the title menu and look at the Extras menu and its screens.
+wait 600
+press START
+wait 400
+shot 01_main_menu
+press DOWN
+wait 30
+press A
+wait 180
+shot 02_extras
+press A
+wait 180
+shot 03_extras_first
+press B
+wait 120
+press DOWN
+wait 30
+press A
+wait 180
+shot 04_extras_second
