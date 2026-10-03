@@ -179,7 +179,7 @@ AoT_RedaSmiling:
 REDA [16,8]
 
 AoT_HannesUnit:
-UNIT AoT_Hannes AoT_ClsGarrison 0 Level(5,Ally,0) [8,4] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
+UNIT AoT_Hannes AoT_ClsHannes 0 Level(5,Ally,0) [8,4] 0 [AoT_ItemBladeID,0,0,0] [0,0,0,0]
 UNIT
 
 // Ending: the crowd on the boat and the Garrison at the inner gate.
@@ -383,7 +383,7 @@ MOVE_NEXTTO 0 AoT_SmilingTitan AoT_Carla
 ENUN
 AoT_Talk(AoT_ErenAfter)
 STARTFADE
-FADECOLORS 0x2000 32 0x180 0x40 0x40
+FADECOLORS 0x2000 32 0x100 0x20 0x20
 SOUN AoT_SfxDeath
 KILL AoT_Carla
 AWAIT_KILL AoT_Carla

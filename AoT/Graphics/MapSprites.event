@@ -1,2 +1,101 @@
 // Map sprites: standing (SMS) and moving (MMS) sheets for the AoT classes.
-// Filled in once the sprite sheets are drawn.
+// Original art in MapSprites/*.png (indexed, map-sprite palette order, index 0
+// transparent), converted by Png2Dmp at build time.
+//
+// SMS table entry, 8 bytes, indexed by the class's SMS id:
+//   u16 unused, u16 size (0 = 16x16, 1 = 16x32, 2 = 32x32), pointer to the
+//   LZ77 sheet (three idle frames stacked vertically).
+// MMS table entry, 8 bytes, at (class - 1) * 8:
+//   pointer to the LZ77 sheet (fifteen 32x32 frames: 0-3 walking left,
+//   4-7 down, 8-11 up, 12-14 selected), pointer to the animation script.
+
+#define AoT_SMSTable 0x8AF880
+#define AoT_MMSTable 0x9A2E00
+#define AoT_WalkScript 0x8200348  // vanilla civilian walk script: one 32x32 object per frame
+
+#define AoT_SetSMS(id, size, sheet) "PUSH; ORG AoT_SMSTable + (id) * 8; SHORT 0 size; POIN sheet; POP"
+#define AoT_SetMMS(cls, sheet) "PUSH; ORG AoT_MMSTable + ((cls) - 1) * 8; POIN sheet; WORD AoT_WalkScript; POP"
+
+ALIGN 4
+AoT_SMS_Eren:
+#incext Png2Dmp "MapSprites/eren_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Eren:
+#incext Png2Dmp "MapSprites/eren_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Mikasa:
+#incext Png2Dmp "MapSprites/mikasa_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Mikasa:
+#incext Png2Dmp "MapSprites/mikasa_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Armin:
+#incext Png2Dmp "MapSprites/armin_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Armin:
+#incext Png2Dmp "MapSprites/armin_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Garrison:
+#incext Png2Dmp "MapSprites/garrison_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Garrison:
+#incext Png2Dmp "MapSprites/garrison_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Hannes:
+#incext Png2Dmp "MapSprites/hannes_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Hannes:
+#incext Png2Dmp "MapSprites/hannes_mms.png" --lz77
+ALIGN 4
+AoT_SMS_TitanA:
+#incext Png2Dmp "MapSprites/titan_a_sms.png" --lz77
+ALIGN 4
+AoT_MMS_TitanA:
+#incext Png2Dmp "MapSprites/titan_a_mms.png" --lz77
+ALIGN 4
+AoT_SMS_TitanB:
+#incext Png2Dmp "MapSprites/titan_b_sms.png" --lz77
+ALIGN 4
+AoT_MMS_TitanB:
+#incext Png2Dmp "MapSprites/titan_b_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Smiling:
+#incext Png2Dmp "MapSprites/smiling_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Smiling:
+#incext Png2Dmp "MapSprites/smiling_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Colossal:
+#incext Png2Dmp "MapSprites/colossal_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Colossal:
+#incext Png2Dmp "MapSprites/colossal_mms.png" --lz77
+ALIGN 4
+AoT_SMS_Armored:
+#incext Png2Dmp "MapSprites/armored_sms.png" --lz77
+ALIGN 4
+AoT_MMS_Armored:
+#incext Png2Dmp "MapSprites/armored_mms.png" --lz77
+ALIGN 4
+
+AoT_SetSMS(AoT_SmsEren,     0, AoT_SMS_Eren)
+AoT_SetSMS(AoT_SmsMikasa,   0, AoT_SMS_Mikasa)
+AoT_SetSMS(AoT_SmsArmin,    0, AoT_SMS_Armin)
+AoT_SetSMS(AoT_SmsGarrison, 1, AoT_SMS_Garrison)
+AoT_SetSMS(AoT_SmsHannes,   1, AoT_SMS_Hannes)
+AoT_SetSMS(AoT_SmsTitan,    2, AoT_SMS_TitanA)
+AoT_SetSMS(AoT_SmsTitanB,   2, AoT_SMS_TitanB)
+AoT_SetSMS(AoT_SmsSmiling,  2, AoT_SMS_Smiling)
+AoT_SetSMS(AoT_SmsColossal, 2, AoT_SMS_Colossal)
+AoT_SetSMS(AoT_SmsArmored,  2, AoT_SMS_Armored)
+
+AoT_SetMMS(AoT_ClsEren,     AoT_MMS_Eren)
+AoT_SetMMS(AoT_ClsMikasa,   AoT_MMS_Mikasa)
+AoT_SetMMS(AoT_ClsArmin,    AoT_MMS_Armin)
+AoT_SetMMS(AoT_ClsGarrison, AoT_MMS_Garrison)
+AoT_SetMMS(AoT_ClsHannes,   AoT_MMS_Hannes)
+AoT_SetMMS(AoT_ClsTitan,    AoT_MMS_TitanA)
+AoT_SetMMS(AoT_ClsTitanB,   AoT_MMS_TitanB)
+AoT_SetMMS(AoT_ClsSmiling,  AoT_MMS_Smiling)
+AoT_SetMMS(AoT_ClsColossal, AoT_MMS_Colossal)
+AoT_SetMMS(AoT_ClsArmored,  AoT_MMS_Armored)

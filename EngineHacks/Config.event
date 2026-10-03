@@ -82,7 +82,8 @@
 #define SEMITRANSPARENCY_CHANGES
 
 //If uncommented, will enable use of Supply during the prologue.
-#define PROLOGUE_SUPPLY
+//AoT: off, so the Shiganshina prologue has no Sacred Stones supply convoy.
+//#define PROLOGUE_SUPPLY
 
 //If uncommented, will enable PC and Generic Music.
 //#define CHARACTER_CHAPTER_SPECIFIC_BATTTLETHEMES
