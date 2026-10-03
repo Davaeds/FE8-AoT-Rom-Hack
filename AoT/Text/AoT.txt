@@ -1,7 +1,8 @@
 // Attack on Titan text. Included at the end of Text/text_buildfile.txt.
 // "## Name" entries get the next free text ID; Name becomes an EA definition.
 // Portrait IDs used in [LoadFace]: 0x02 Eren, 0x03 Mikasa, 0x04 Armin,
-// 0x05 Hannes, 0x06 Carla, 0x07 Garrison soldier.
+// 0x05 Hannes, 0x06 Carla, 0x07 Garrison soldier, 0x08 Shadis, 0x09 Jean,
+// 0x0A-0x0C cadet Eren, Mikasa, Armin (chapter 2 on), 0x0D-0x10 Titans.
 // Dialogue follows the first episodes of the anime closely but is written
 // from memory, so it paraphrases rather than quotes the script.
 
@@ -485,10 +486,10 @@ a second chance. Neither will I![A][NL]
 Begin!![A][X]
 
 ## AoT_C2Banter
-[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenMidLeft]Hey, Yeager. Try not to fly[NL]
+[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x0A][0x01][OpenMidLeft]Hey, Yeager. Try not to fly[NL]
 into a tree this time.[A][OpenMidRight]Worry about yourself, Jean![A][NL]
-[OpenFarRight][LoadFace][0x03][0x01][OpenFarRight]Eren. Focus.[A][NL]
-[OpenFarLeft][LoadFace][0x04][0x01][OpenFarLeft]The other squads are already[NL]
+[OpenFarRight][LoadFace][0x0B][0x01][OpenFarRight]Eren. Focus.[A][NL]
+[OpenFarLeft][LoadFace][0x0C][0x01][OpenFarLeft]The other squads are already[NL]
 moving in from the south.[A][NL]
 If we want the top scores,[NL]
 we have to hurry![A][X]
@@ -503,7 +504,7 @@ A rival squad is after the same[NL]
 dummies. Beat them to it![A][X]
 
 ## AoT_C2RivalsLine
-[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x02][0x01][OpenMidLeft]Tch! They're taking all the[NL]
+[OpenMidLeft][LoadFace][0x09][0x01][OpenMidRight][LoadFace][0x0A][0x01][OpenMidLeft]Tch! They're taking all the[NL]
 good ones!![A][OpenMidRight]Then stop talking and move![A][X]
 
 ## AoT_C2ExamOver

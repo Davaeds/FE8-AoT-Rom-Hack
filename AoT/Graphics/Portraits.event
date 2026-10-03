@@ -32,7 +32,49 @@ AoT_MugSoldier_Data:
 #incext PortraitFormatter "Portraits/Soldier.png"
 setMugEntry(AoT_MugSoldier, AoT_MugSoldier_Data, 4, 6, 3, 4)
 
-// Chapter 2. TEMPORARY: Shadis and Jean borrow the Garrison soldier's face
-// until their own portraits are drawn.
-setMugEntry(AoT_MugShadis, AoT_MugSoldier_Data, 4, 6, 3, 4)
-setMugEntry(AoT_MugJean, AoT_MugSoldier_Data, 4, 6, 3, 4)
+// Chapter 2 and the Titans.
+
+ALIGN 4
+AoT_MugShadis_Data:
+#incext PortraitFormatter "Portraits/Shadis.png"
+setMugEntry(AoT_MugShadis, AoT_MugShadis_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugJean_Data:
+#incext PortraitFormatter "Portraits/Jean.png"
+setMugEntry(AoT_MugJean, AoT_MugJean_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugCadetEren_Data:
+#incext PortraitFormatter "Portraits/CadetEren.png"
+setMugEntry(AoT_MugCadetEren, AoT_MugCadetEren_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugCadetMikasa_Data:
+#incext PortraitFormatter "Portraits/CadetMikasa.png"
+setMugEntry(AoT_MugCadetMikasa, AoT_MugCadetMikasa_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugCadetArmin_Data:
+#incext PortraitFormatter "Portraits/CadetArmin.png"
+setMugEntry(AoT_MugCadetArmin, AoT_MugCadetArmin_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugTitan_Data:
+#incext PortraitFormatter "Portraits/Titan.png"
+setMugEntry(AoT_MugTitan, AoT_MugTitan_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugSmiling_Data:
+#incext PortraitFormatter "Portraits/Smiling.png"
+setMugEntry(AoT_MugSmiling, AoT_MugSmiling_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugColossal_Data:
+#incext PortraitFormatter "Portraits/Colossal.png"
+setMugEntry(AoT_MugColossal, AoT_MugColossal_Data, 4, 6, 4, 4)
+
+ALIGN 4
+AoT_MugArmored_Data:
+#incext PortraitFormatter "Portraits/Armored.png"
+setMugEntry(AoT_MugArmored, AoT_MugArmored_Data, 4, 6, 4, 4)

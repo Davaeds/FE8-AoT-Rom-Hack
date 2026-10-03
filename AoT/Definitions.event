@@ -16,6 +16,9 @@
 #define AoT_Shadis        0x0C
 #define AoT_Cadet         0x0D  // generic 104th cadet, shared by several units
 #define AoT_Dummy         0x0E  // wooden Titan training dummy, shared
+#define AoT_CadetEren     0x0F  // Eren, Mikasa and Armin as 15-year-old cadets (chapter 2 on)
+#define AoT_CadetMikasa   0x10
+#define AoT_CadetArmin    0x11
 
 // ---------------------------------------------------------------- classes
 #define AoT_ClsEren       0x73
@@ -70,6 +73,13 @@
 #define AoT_MugSoldier    0x07
 #define AoT_MugShadis     0x08
 #define AoT_MugJean       0x09
+#define AoT_MugCadetEren  0x0A
+#define AoT_MugCadetMikasa 0x0B
+#define AoT_MugCadetArmin 0x0C
+#define AoT_MugTitan      0x0D
+#define AoT_MugSmiling    0x0E
+#define AoT_MugColossal   0x0F
+#define AoT_MugArmored    0x10
 
 // ---------------------------------------------------------------- items
 #define AoT_ItemBladeID   0x05  // vanilla Iron Blade slot

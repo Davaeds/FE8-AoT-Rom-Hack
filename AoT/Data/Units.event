@@ -63,11 +63,14 @@ AoTCharacter(AoT_Armin,        AoT_NameArmin,          AoT_DescArmin,          A
 AoTCharacter(AoT_Hannes,       AoT_NameHannes,         AoT_DescHannes,         AoT_ClsHannes,   AoT_MugHannes,  5, 30, 9, 8, 7, 6, 2, 3, 11, DRank, 80, 45, 45, 40, 35, 20, 30, 0)
 AoTCharacter(AoT_Carla,        AoT_NameCarla,          AoT_DescCarla,          AoT_ClsCarla,    AoT_MugCarla,   1, 12, 1, 1, 1, 1, 1, 5, 5, NoRank, 0, 0, 0, 0, 0, 0, 0, IsFemale)
 AoTCharacter(AoT_Garrison,     AoT_NameGarrison,       AoT_DescGarrison,       AoT_ClsGarrison, AoT_MugSoldier, 3, 22, 6, 6, 6, 4, 1, 2, 10, DRank, 0, 0, 0, 0, 0, 0, 0, 0)
-AoTCharacter(AoT_Titan,        AoT_NameTitan,          AoT_DescTitan,          AoT_ClsTitan,    0,             10, 60, 18, 4, 3, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
-AoTCharacter(AoT_SmilingTitan, AoT_NameSmilingTitan,   AoT_DescSmilingTitan,   AoT_ClsSmiling,  0,             10, 60, 18, 5, 4, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
-AoTCharacter(AoT_Colossal,     AoT_NameColossal,       AoT_DescColossal,       AoT_ClsColossal, 0,             20, 60, 30, 5, 0, 20, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
-AoTCharacter(AoT_Armored,      AoT_NameArmored,        AoT_DescArmored,        AoT_ClsArmored,  0,             20, 60, 25, 8, 6, 30, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Titan,        AoT_NameTitan,          AoT_DescTitan,          AoT_ClsTitan,    AoT_MugTitan,  10, 60, 18, 4, 3, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_SmilingTitan, AoT_NameSmilingTitan,   AoT_DescSmilingTitan,   AoT_ClsSmiling,  AoT_MugSmiling, 10, 60, 18, 5, 4, 7, 0, 0, 25, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Colossal,     AoT_NameColossal,       AoT_DescColossal,       AoT_ClsColossal, AoT_MugColossal, 20, 60, 30, 5, 0, 20, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
+AoTCharacter(AoT_Armored,      AoT_NameArmored,        AoT_DescArmored,        AoT_ClsArmored,  AoT_MugArmored, 20, 60, 25, 8, 6, 30, 5, 0, 30, NoRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 AoTCharacter(AoT_Jean,         AoT_NameJean,           AoT_DescJean,           AoT_ClsCadetJean, AoT_MugJean,  1, 22, 7, 7, 7, 5, 1, 4, 8, ERank, 75, 45, 45, 45, 35, 20, 35, 0)
+AoTCharacter(AoT_CadetEren,    AoT_NameEren,           AoT_DescEren,           AoT_ClsCadetEren, AoT_MugCadetEren, 1, 18, 4, 3, 6, 2, 1, 6, 6, ERank, 70, 45, 35, 45, 30, 20, 40, 0)
+AoTCharacter(AoT_CadetMikasa,  AoT_NameMikasa,         AoT_DescMikasa,         AoT_ClsCadetMikasa, AoT_MugCadetMikasa, 1, 21, 7, 8, 9, 4, 2, 6, 6, ERank, 75, 55, 60, 60, 35, 25, 40, IsFemale)
+AoTCharacter(AoT_CadetArmin,   AoT_NameArmin,          AoT_DescArmin,          AoT_ClsCadetArmin, AoT_MugCadetArmin, 1, 15, 2, 4, 6, 1, 4, 5, 6, ERank, 50, 25, 45, 45, 20, 35, 45, 0)
 AoTCharacter(AoT_Shadis,       AoT_NameShadis,         AoT_DescShadis,         AoT_ClsCadet,    AoT_MugShadis,  10, 40, 14, 12, 10, 10, 4, 5, 12, DRank, 0, 0, 0, 0, 0, 0, 0, GiveNoExp)
 AoTCharacter(AoT_Cadet,        AoT_NameCadet,          AoT_DescCadet,          AoT_ClsCadet,    0,              1, 18, 5, 5, 6, 3, 1, 3, 7, ERank, 0, 0, 0, 0, 0, 0, 0, 0)
 AoTCharacter(AoT_Dummy,        AoT_NameDummy,          AoT_DescDummy,          AoT_ClsDummy,    0,              1, 14, 3, 2, 0, 2, 0, 0, 20, NoRank, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -83,6 +86,9 @@ ORG PersonalSkillTable + AoT_Carla;    BYTE 0
 ORG PersonalSkillTable + AoT_Garrison; BYTE 0
 ORG PersonalSkillTable + AoT_Jean;     BYTE 0
 ORG PersonalSkillTable + AoT_Shadis;   BYTE 0
+ORG PersonalSkillTable + AoT_CadetEren;   BYTE 0
+ORG PersonalSkillTable + AoT_CadetMikasa; BYTE 0
+ORG PersonalSkillTable + AoT_CadetArmin;  BYTE 0
 ORG PersonalSkillTable + AoT_Cadet;    BYTE 0
 ORG PersonalSkillTable + AoT_Dummy;    BYTE 0
 POP

@@ -22,6 +22,9 @@ AoT_DefeatTalkList:
 SHORT AoT_Eren;     BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathEren;     WORD 0
 SHORT AoT_Mikasa;   BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathMikasa;   WORD 0
 SHORT AoT_Armin;    BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathArmin;    WORD 0
+SHORT AoT_CadetEren;   BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathEren;   WORD 0
+SHORT AoT_CadetMikasa; BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathMikasa; WORD 0
+SHORT AoT_CadetArmin;  BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathArmin;  WORD 0
 SHORT AoT_Hannes;   BYTE 0xFF 0xFF; SHORT AoT_FlagGameOver AoT_DeathHannes;   WORD 0
 SHORT AoT_Garrison; BYTE 0xFF 0xFF; SHORT 0                AoT_DeathGarrison; WORD 0
 SHORT 0xFFFF;       BYTE 0 0;       SHORT 0 0;                                WORD 0

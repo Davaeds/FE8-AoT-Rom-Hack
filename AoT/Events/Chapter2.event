@@ -74,9 +74,9 @@ ALIGN 4
 // ---------------------------------------------------------------- units
 // Three years of training: the squad auto-levels from the character bases.
 AoT_C2Squad:
-UNIT AoT_Eren   AoT_ClsCadetEren   0 Level(5,Ally,1) [6,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
-UNIT AoT_Mikasa AoT_ClsCadetMikasa 0 Level(6,Ally,1) [7,8] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
-UNIT AoT_Armin  AoT_ClsCadetArmin  0 Level(4,Ally,1) [5,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_CadetEren   AoT_ClsCadetEren   0 Level(5,Ally,1) [6,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_CadetMikasa AoT_ClsCadetMikasa 0 Level(6,Ally,1) [7,8] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
+UNIT AoT_CadetArmin  AoT_ClsCadetArmin  0 Level(4,Ally,1) [5,9] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
 UNIT AoT_Jean   AoT_ClsCadetJean   0 Level(5,Ally,1) [6,8] 0 [AoT_ItemTrainingID,0,0,0] [0,0,0,0]
 UNIT
 
