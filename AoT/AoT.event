@@ -6,6 +6,7 @@
 #include "Data/Units.event"
 #include "Graphics/Portraits.event"
 #include "Graphics/MapSprites.event"
+#include "Graphics/Backgrounds.event"
 #include "Engine/Engine.event"
 #include "Maps/Shiganshina.event"
 #include "Events/Prologue.event"

@@ -1,0 +1,51 @@
+// The picture behind Eren's narration (CG-mode text), original art: the
+// Colossal Titan looking over Wall Maria. FE8U always draws gCGDataTable[0]
+// here (GetCG ignores its index), so this replaces CG 0.
+// Converted from Backgrounds/NarrationCG.png by tools/cgconv.py.
+
+ALIGN 4
+AoT_NarrationCG_Chunks:
+POIN AoT_NarrationCG_0 AoT_NarrationCG_1 AoT_NarrationCG_2 AoT_NarrationCG_3 AoT_NarrationCG_4
+POIN AoT_NarrationCG_5 AoT_NarrationCG_6 AoT_NarrationCG_7 AoT_NarrationCG_8 AoT_NarrationCG_9
+ALIGN 4
+AoT_NarrationCG_0:
+#incbin "Backgrounds/NarrationCG_chunk0.dmp"
+ALIGN 4
+AoT_NarrationCG_1:
+#incbin "Backgrounds/NarrationCG_chunk1.dmp"
+ALIGN 4
+AoT_NarrationCG_2:
+#incbin "Backgrounds/NarrationCG_chunk2.dmp"
+ALIGN 4
+AoT_NarrationCG_3:
+#incbin "Backgrounds/NarrationCG_chunk3.dmp"
+ALIGN 4
+AoT_NarrationCG_4:
+#incbin "Backgrounds/NarrationCG_chunk4.dmp"
+ALIGN 4
+AoT_NarrationCG_5:
+#incbin "Backgrounds/NarrationCG_chunk5.dmp"
+ALIGN 4
+AoT_NarrationCG_6:
+#incbin "Backgrounds/NarrationCG_chunk6.dmp"
+ALIGN 4
+AoT_NarrationCG_7:
+#incbin "Backgrounds/NarrationCG_chunk7.dmp"
+ALIGN 4
+AoT_NarrationCG_8:
+#incbin "Backgrounds/NarrationCG_chunk8.dmp"
+ALIGN 4
+AoT_NarrationCG_9:
+#incbin "Backgrounds/NarrationCG_chunk9.dmp"
+ALIGN 4
+AoT_NarrationCG_TSA:
+#incbin "Backgrounds/NarrationCG_tsa.dmp"
+ALIGN 4
+AoT_NarrationCG_Pal:
+#incbin "Backgrounds/NarrationCG_pal.dmp"
+ALIGN 4
+
+PUSH
+ORG 0xA3CCEC
+POIN AoT_NarrationCG_Chunks AoT_NarrationCG_TSA AoT_NarrationCG_Pal
+POP
