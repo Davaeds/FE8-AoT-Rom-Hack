@@ -2,9 +2,9 @@ import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from render import to_idx, sheet, colorize
 from sheets import *
-from kids import KIDS, COLORS
+from kids import KIDS, COLORS, HEAD_ROWS
 
-def nod(a, head_rows=6):
+def nod(a, head_rows=HEAD_ROWS):
     out = a.copy()
     out[0:head_rows+1] = 0
     blit(out, a[0:head_rows], 0, 1)
