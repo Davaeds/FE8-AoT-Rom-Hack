@@ -1,0 +1,62 @@
+// Title screen, original art: the Colossal Titan peering over Wall Maria,
+// "ATTACK ON TITAN" with 進撃の巨人 under it, Press START and a credit line,
+// in place of the Sacred Stones parchment, dragon emblem and logo.
+// Made by tools/titleconv.py (which documents the layout). Each ORG below is
+// the only reference to that vanilla graphic in the FE8U title screen code.
+
+ALIGN 4
+AoT_TitleBg1TilesA:
+#incbin "Title/bg1_tiles_a.dmp"
+ALIGN 4
+AoT_TitleBg1TilesB:
+#incbin "Title/bg1_tiles_b.dmp"
+ALIGN 4
+AoT_TitleBg1Map:
+#incbin "Title/bg1_map.dmp"
+ALIGN 4
+AoT_TitleBg1Pal:
+#incbin "Title/bg1_pal.dmp"
+ALIGN 4
+AoT_TitleBg0Tiles:
+#incbin "Title/bg0_tiles.dmp"
+ALIGN 4
+AoT_TitleBg0Map:
+#incbin "Title/bg0_map.dmp"
+ALIGN 4
+AoT_TitleBg0Pal:
+#incbin "Title/bg0_pal.dmp"
+ALIGN 4
+AoT_TitleLogo:
+#incbin "Title/logo.dmp"
+ALIGN 4
+AoT_TitleSub:
+#incbin "Title/sub.dmp"
+ALIGN 4
+AoT_TitleObjPal:
+#incbin "Title/objpal.dmp"
+ALIGN 4
+AoT_TitleGlow:
+#incbin "Title/glow.dmp"
+ALIGN 4
+
+PUSH
+// Title_SetupMainGraphics
+ORG 0xC5730; POIN AoT_TitleBg1TilesA
+ORG 0xC5780; POIN AoT_TitleBg1TilesB
+ORG 0xC5788; POIN AoT_TitleBg1Map
+ORG 0xC5790; POIN AoT_TitleBg1Pal
+ORG 0xC57E4; POIN AoT_TitleBg0Tiles
+ORG 0xC57EC; POIN AoT_TitleBg0Map
+ORG 0xC57F4; POIN AoT_TitleBg0Pal
+ORG 0xC5808; POIN AoT_TitleLogo
+ORG 0xC5830; POIN AoT_TitleSub
+ORG 0xC5838; POIN AoT_TitleObjPal
+// DrawTitleSprites_Loop: the colours "Press START" pulses through
+ORG 0xC5514; POIN AoT_TitleGlow
+ORG 0xC5544; POIN AoT_TitleGlow
+// palette fades in the intro effects (only after the opening plays through)
+ORG 0xC5CC0; POIN AoT_TitleBg1Pal
+ORG 0xC5F1C; POIN AoT_TitleBg1Pal
+ORG 0xC62B4; POIN AoT_TitleBg1Pal
+ORG 0xC62C0; POIN AoT_TitleBg0Pal
+POP

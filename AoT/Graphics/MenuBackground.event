@@ -1,0 +1,50 @@
+// The picture behind the menus, the save screens and the chapter title card
+// (Img_CommGameBgScreen): Wall Maria's stonework with a carved frieze of
+// Survey Corps wings, in place of the Sacred Stones runes.
+// Made by tools/menubgconv.py.
+
+ALIGN 4
+AoT_MenuBg:
+#incbin "Menu/menu_bg.dmp"
+ALIGN 4
+
+PUSH
+// every reference to the vanilla picture (0x8B12DB4)
+ORG 0x2008C; POIN AoT_MenuBg
+ORG 0x86C44; POIN AoT_MenuBg
+ORG 0x86CDC; POIN AoT_MenuBg
+ORG 0x86DB0; POIN AoT_MenuBg
+ORG 0xB0594; POIN AoT_MenuBg
+ORG 0xB0D0C; POIN AoT_MenuBg
+ORG 0xB4E18; POIN AoT_MenuBg
+ORG 0xB6808; POIN AoT_MenuBg
+ORG 0xC48DC; POIN AoT_MenuBg
+// its two palettes, overwritten in place: every screen that draws the picture loads them from here
+ORG 0xB1754C
+#incbin "Menu/menu_bg_pal.dmp"
+POP
+
+// The full-screen picture behind the title menu and the save files: an old
+// Survey Corps map of the three Walls, in place of the blue rune picture.
+// Same layout as a CG: tiles, a map from the bottom row up, eight palettes.
+ALIGN 4
+AoT_MainBg:
+#incbin "Menu/main_bg.dmp"
+ALIGN 4
+AoT_MainBgTSA:
+#incbin "Menu/main_bg_tsa.dmp"
+ALIGN 4
+AoT_MainBgPal:
+#incbin "Menu/main_bg_pal.dmp"
+ALIGN 4
+
+PUSH
+// every reference to the vanilla tiles (0x8A21658), palettes (0x8A25DCC) and map (0x8A25ECC)
+ORG 0x3840C; POIN AoT_MainBg AoT_MainBgPal AoT_MainBgTSA
+ORG 0xA8EB0; POIN AoT_MainBgPal AoT_MainBg
+ORG 0xA8EBC; POIN AoT_MainBgTSA
+ORG 0xAA410; POIN AoT_MainBgPal AoT_MainBg
+ORG 0xAA41C; POIN AoT_MainBgTSA
+ORG 0xAC178; POIN AoT_MainBgPal
+ORG 0xB8140; POIN AoT_MainBg AoT_MainBgPal AoT_MainBgTSA
+POP
