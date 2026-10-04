@@ -109,7 +109,11 @@ PUSH; ORG ItemTable + AoT_ItemTrainingID * 36 + 24; BYTE 100; POP
 #endif
 #ifdef AoT_DEBUG_BATTLE
 AoT_C2DebugDummy:
+#ifdef AoT_DEBUG_TITAN  // a Titan instead of the dummy, to test the Titan animations
+UNIT AoT_Titan AoT_ClsTitan 0 Level(10,Enemy,0) [7,9] 0 [AoT_ItemGraspID,0,0,0] [0,0,0,0]
+#else
 UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [7,9] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+#endif
 UNIT
 #endif
 

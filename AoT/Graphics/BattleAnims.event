@@ -16,6 +16,16 @@ BYTE 0x0B 1; SHORT 2
 BYTE 0x09 1; SHORT 2
 WORD 0
 
+AoT_BanimTitanList:
+BYTE 0x0B 1; SHORT 3
+BYTE 0x09 1; SHORT 3
+WORD 0
+
+AoT_BanimSmilingList:
+BYTE 0x0B 1; SHORT 4
+BYTE 0x09 1; SHORT 4
+WORD 0
+
 PUSH
 ORG ClassTable + AoT_ClsCadetEren * 84 + 0x34;   POIN AoT_BanimCadetList
 ORG ClassTable + AoT_ClsCadetMikasa * 84 + 0x34; POIN AoT_BanimCadetList
@@ -23,4 +33,10 @@ ORG ClassTable + AoT_ClsCadetArmin * 84 + 0x34;  POIN AoT_BanimCadetList
 ORG ClassTable + AoT_ClsCadetJean * 84 + 0x34;   POIN AoT_BanimCadetList
 ORG ClassTable + AoT_ClsCadet * 84 + 0x34;       POIN AoT_BanimCadetList
 ORG ClassTable + AoT_ClsDummy * 84 + 0x34;       POIN AoT_BanimDummyList
+// Garrison soldiers wear the same uniform and ODM gear as the cadets.
+ORG ClassTable + AoT_ClsGarrison * 84 + 0x34;    POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsHannes * 84 + 0x34;      POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsTitan * 84 + 0x34;       POIN AoT_BanimTitanList
+ORG ClassTable + AoT_ClsTitanB * 84 + 0x34;      POIN AoT_BanimTitanList
+ORG ClassTable + AoT_ClsSmiling * 84 + 0x34;     POIN AoT_BanimSmilingList
 POP

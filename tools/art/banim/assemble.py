@@ -40,7 +40,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 OUT = os.path.join(ROOT, "AoT", "Graphics", "Banim")
 BASE = 0x1800000          # ROM offset of banim.bin
 ANCHOR = (148, 88)
-ANIMS = ["cadet", "dummy"]
+ANIMS = ["cadet", "dummy", "pure_titan", "titan_smiling"]
 
 # (shape, size) for each object size in tiles, largest first
 OBJ = {(4, 4): (0, 2), (8, 4): (1, 3), (4, 8): (2, 3), (4, 2): (1, 2), (2, 4): (2, 2), (2, 2): (0, 1),
