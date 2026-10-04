@@ -135,7 +135,9 @@ CLEAN
 // are cadets with new stats and gear.
 ASMC AoT_ASMC_ClearPlayers|1
 LOAD1 0 AoT_C2Squad
+#ifndef AoT_DEBUG_WIN  // smoke tests: only the debug dummy, so one kill wins the chapter
 LOAD1 0 AoT_C2Dummies
+#endif
 LOAD1 0 AoT_C2Rivals
 LOAD1 0 AoT_C2ShadisUnit
 #ifdef AoT_DEBUG_BATTLE
