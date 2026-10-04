@@ -11,11 +11,8 @@ import pkit  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 OUT = os.path.join(ROOT, "AoT", "Graphics", "Portraits")
-CHARACTERS = {"eren": "Eren", "mikasa": "Mikasa", "armin": "Armin", "hannes": "Hannes",
-              "carla": "Carla", "soldier": "Soldier",
-              "cadet_eren": "CadetEren", "cadet_mikasa": "CadetMikasa", "cadet_armin": "CadetArmin",
-              "jean": "Jean", "shadis": "Shadis", "smiling": "Smiling", "colossal": "Colossal",
-              "armored": "Armored", "titan": "Titan"}
+CHARACTERS = {"smiling": "Smiling", "colossal": "Colossal", "titan": "Titan"}
+# Cadets, Jean, Shadis and the Armored Titan are converted from generated art: see from_image.py.
 
 
 def main(argv):
