@@ -103,6 +103,13 @@ UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [7,17]  0 [AoT_ItemDummyArmID,0,0
 UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [12,19] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
 UNIT
 
+// Debug: a dummy next to Eren, to test fights.
+#ifdef AoT_DEBUG_BATTLE
+AoT_C2DebugDummy:
+UNIT AoT_Dummy AoT_ClsDummy 0 Level(1,Enemy,0) [7,9] 0 [AoT_ItemDummyArmID,0,0,0] [0,0,0,0]
+UNIT
+#endif
+
 AoT_C2ShadisUnit:
 UNIT AoT_Shadis AoT_ClsCadet 0 Level(10,NPC,0) [8,9] 0 [0,0,0,0] [0x06,0x03,0,0]
 UNIT
@@ -128,6 +135,9 @@ LOAD1 0 AoT_C2Squad
 LOAD1 0 AoT_C2Dummies
 LOAD1 0 AoT_C2Rivals
 LOAD1 0 AoT_C2ShadisUnit
+#ifdef AoT_DEBUG_BATTLE
+LOAD1 0 AoT_C2DebugDummy
+#endif
 ENUN
 CAMERA [4,6]
 MUSC AoT_SongPeace

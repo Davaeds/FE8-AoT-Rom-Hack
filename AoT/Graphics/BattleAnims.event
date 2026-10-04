@@ -1,0 +1,26 @@
+// Battle animations. Graphics and scripts come from tools/art/banim (see
+// assemble.py there); this file gives classes their animation lists.
+// List entry: weapon type, 1 (= match by type), animation id (banim slot + 1).
+// Type 9 is the unarmed fallback.
+
+#include "Banim/Banim.event"
+
+ALIGN 4
+AoT_BanimCadetList:
+BYTE 0x00 1; SHORT 1
+BYTE 0x09 1; SHORT 1
+WORD 0
+
+AoT_BanimDummyList:
+BYTE 0x0B 1; SHORT 2
+BYTE 0x09 1; SHORT 2
+WORD 0
+
+PUSH
+ORG ClassTable + AoT_ClsCadetEren * 84 + 0x34;   POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsCadetMikasa * 84 + 0x34; POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsCadetArmin * 84 + 0x34;  POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsCadetJean * 84 + 0x34;   POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsCadet * 84 + 0x34;       POIN AoT_BanimCadetList
+ORG ClassTable + AoT_ClsDummy * 84 + 0x34;       POIN AoT_BanimDummyList
+POP

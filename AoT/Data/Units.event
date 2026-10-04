@@ -99,3 +99,14 @@ AoTItem(AoT_ItemBladeID, AoT_ItemBlade,  AoT_ItemBladeDesc,  0x0,  IsWeapon,    
 AoTItem(AoT_ItemGraspID, AoT_ItemGrasp,  AoT_ItemGraspDesc,  0xB,  IsWeapon|Indestructible|MonsterWeapon,       0,  14, 70, 10, 0, 0x11, NoRank, 0xD2, 0)
 AoTItem(AoT_ItemTrainingID, AoT_ItemTraining, AoT_ItemTrainingDesc, 0x0, IsWeapon,                           30,  5, 90, 2, 5,  0x11, ERank, 0x4, 1)
 AoTItem(AoT_ItemDummyArmID, AoT_ItemDummyArm, AoT_ItemDummyArmDesc, 0xB, IsWeapon|Indestructible|MonsterWeapon, 0, 4, 55, 5, 0,  0x11, NoRank, 0xD2, 0)
+
+// Vanilla per-character battle palettes (gAnimCharaPalConfig at 0x95E0A4: for
+// character n, 7 class ids at 0x95E0A4 + (n - 1) * 7). A match swaps in that
+// character's vanilla palette, which would recolour our battle animations.
+// Clear the rows of every character slot we reuse.
+PUSH
+ORG 0x95E0A4
+FILL 0x11 * 7
+ORG 0x95E0A4 + (AoT_Townsperson - 1) * 7
+FILL 7
+POP

@@ -11,6 +11,7 @@
  *                       KEYS is one or more of A B SELECT START RIGHT LEFT UP DOWN R L
  *                       joined with '+', e.g. A+B
  *   shot NAME           write OUTDIR/NAME.ppm (240x160 RGB)
+ *   dump NAME ADDR LEN  write LEN bytes of the bus from ADDR (hex) to OUTDIR/NAME.bin
  *
  * For each shot, prints "shot NAME frame=F fnv1a=HASH" to stdout so two runs
  * can be compared without looking at the images.
@@ -133,6 +134,23 @@ int main(int argc, char** argv) {
 			if (ok) {
 				step(core, keys, fields >= 3 ? n : 4);
 				step(core, 0, 1);
+			}
+		} else if (strcmp(cmd, "dump") == 0) {
+			char name[64];
+			unsigned addr, len;
+			if (sscanf(line, "%*s %63s %x %x", name, &addr, &len) != 3) {
+				fprintf(stderr, "%s:%d: dump NAME ADDR LEN\n", argv[3], lineno);
+				ok = 0;
+			} else {
+				char path[4096];
+				snprintf(path, sizeof(path), "%s/%s.bin", argv[2], name);
+				FILE* f = fopen(path, "wb");
+				for (unsigned i = 0; f && i < len; ++i) {
+					fputc(core->busRead8(core, addr + i), f);
+				}
+				if (f) {
+					fclose(f);
+				}
 			}
 		} else if (strcmp(cmd, "shot") == 0 && fields >= 2) {
 			ok = shot(argv[2], arg);

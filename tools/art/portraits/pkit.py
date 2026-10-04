@@ -69,10 +69,11 @@ class Scene:
         self.ops.append(dict(kind="fill", key=key, path=path, group=group or key,
                              outline=outline, clip=clip, line=line))
 
-    def stroke(self, key, pts, w=1.0, smooth=True, closed=False, clip=None, thr=0.3):
+    def stroke(self, key, pts, w=1.0, smooth=True, closed=False, clip=None, thr=0.3, free=False):
+        """Line over earlier shapes. free=True also paints over empty background."""
         path = spline(pts, closed=closed) if smooth and len(pts) > 2 else [(p[0], p[1]) for p in pts]
         self.ops.append(dict(kind="stroke", key=key, path=path, w=w, clip=clip, thr=thr,
-                             closed=closed))
+                             closed=closed, free=free))
 
     def dot(self, key, x, y, clip=None):
         self.ops.append(dict(kind="dot", key=key, x=x, y=y, clip=clip))
@@ -164,7 +165,7 @@ class Scene:
                 for x, y in (p[0], p[-1]):
                     d.ellipse((x - r, y - r, x + r, y + r), fill=255)
                 cov = (np.asarray(m) > 0).reshape(th, SS, tw, SS).mean(axis=(1, 3))
-                sel = (cov >= o["thr"]) & (top < i) & (top >= 0)
+                sel = (cov >= o["thr"]) & (top < i) & ((top >= 0) | o["free"])
                 if o["clip"] is not None:
                     sel &= grp == group_of(o["clip"])
                 out[sel] = kidx[o["key"]]

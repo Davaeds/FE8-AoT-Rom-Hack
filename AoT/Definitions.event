@@ -39,8 +39,8 @@
 #define AoT_ClsCadetMikasa 0x10
 #define AoT_ClsCadetArmin  0x13
 #define AoT_ClsCadetJean   0x14
-#define AoT_ClsCadet       0x19
-#define AoT_ClsDummy       0x1A
+#define AoT_ClsCadet       0x20  // not 0x19-0x1C: the engine forces archer palettes on those
+#define AoT_ClsDummy       0x21
 
 // Standing map sprite slots (SMS). 0x78, 0x7B and 0x66-0x68 are avoided:
 // vanilla code or the Skill System treats them specially.

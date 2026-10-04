@@ -11,6 +11,7 @@
 #include "Graphics/MenuBackground.event"
 #include "Graphics/MenuPlates.event"
 #include "Graphics/ChapterIntro.event"
+#include "Graphics/BattleAnims.event"
 #include "Engine/Engine.event"
 #include "Maps/Shiganshina.event"
 #include "Events/Prologue.event"
