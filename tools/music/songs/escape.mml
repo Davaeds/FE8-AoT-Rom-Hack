@@ -1,0 +1,18 @@
+#title  Run (escape through the burning streets)
+#song   0x14
+#tempo  176
+; F minor: i-VI-VII-V twice, staccato strings, brass stabs, running snare.
+
+#define SF  [f a- >c< a-]2
+#define SDB [f a- >d-< a-]2
+#define SEB [g b- >e-< b-]2
+#define SC  [e g >c< g]2
+#define RUN o2 !c16 d16 d16 d16 !d16 d16 c16 d16
+
+A: @48 p44 V84 v88 o4 l8 q5 L $SF $SDB $SEB $SC $SF $SDB $SEB $SC
+B: @61 p80 V104 v100 o4 L {f a-}8 r8 r4 {f a-}8 r8 r4 | {f a-}8 r8 r4 {f a-}8 r8 r4 | {g b-}8 r8 r4 {g b-}8 r8 r4 | {e g}8 r8 r4 {e g}8 r8 r4
+B:   {f a-}8 r8 r4 {f a-}8 r8 r4 | {f a-}8 r8 r4 {f a-}8 r8 r4 | {g b-}8 r8 r4 {g b-}8 r8 r4 | {e g}8 r8 r4 {e g}8 r4.
+C: @56 p70 V110 v104 o5 L c4 c8 d-8 c4 <b-4> | <a-2 g4 f4> | <g4 g8 a-8 b-4> c4 | <b2> e2
+C:   f4 f8 e-8 d-4 c4 | <a-4 b-8> c8 d-4 <a-4> | <b-4> c8 d-8 e-4 d-4 | c1
+D: @48 p64 V100 v100 l8 L [o2 f]8 [o2 d-]8 [o2 e-]8 [o2 c]8 [o2 f]8 [o2 d-]8 [o2 e-]8 [o2 c]8
+E: @127 p64 V88 v90 L [$RUN]16

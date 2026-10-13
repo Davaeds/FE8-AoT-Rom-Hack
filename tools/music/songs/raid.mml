@@ -1,0 +1,103 @@
+#title  Counterattack (player phase)
+#song   0x26
+#tempo  144
+#reverb 30
+; E minor march. A: horn theme, B: soaring answer with string descant,
+; C: the main theme (title.mml) in G major on full brass, D: a quiet interlude
+; (flute over pizzicato), then A and B for the whole orchestra.
+; 2-bar intro, 48-bar loop (about 80 seconds).
+
+; strings, eighth-note arpeggios, one bar each
+#define SEM o4 l8 [e g b g]2
+#define SC  o4 l8 [e g > c < g]2
+#define SD  o4 l8 [f+ a > d < a]2
+#define SBM o4 l8 [f+ b > d < b]2
+#define SAM o4 l8 [e a > c < a]2
+#define SB  o4 l8 [f+ b > d+ < b]2
+#define SG  o4 l8 [d g b g]2
+; pizzicato, quarters: root fifth root fifth
+#define PEM o3 l4 e b e b
+#define PC  o3 l4 c g c g
+#define PAM o2 l4 a > e < a > e <
+#define PB  o2 l4 b > f+ < b > f+ <
+#define PD  o3 l4 d a d a
+; march bass (trombones), one bar each
+#define BE o2 l4 e. e8 e e
+#define BC o2 l4 c. c8 c c
+#define BD o2 l4 d. d8 d d
+#define BBM o1 l4 b. b8 b b
+#define BAM o1 l4 a. a8 a a
+#define BG o1 l4 g. g8 g g
+; melodies
+#define THEME_A e4 b4 a8 g8 a4 | g4. e8 e2 | f+4 a4 g8 f+8 g4 | f+2. d4 | e4 b4 > c8 < b8 a4 | g4. a8 b2 | > c4 < b8 a8 g4 a4 | b1
+#define THEME_B g2 e4 g4 | d2. g4 | f+4. g8 a4 b4 | g1 | g2 a4 b4 | a2 g4 f+4 | e4. f+8 g4 f+4 | f+2 d+2
+#define DESCANT e2 d4 c4 | < b2. g4 | a4. b8 > c4 d4 | < b1 > | e2 f+4 g4 | f+2 e4 d4 | c4. d8 e4 < b4 | b2 > d+2 <
+#define MAIN_G g4 > d4 d4. c8 | < b4 > c4 d2 | e4 d4 c4 < b4 | a2 f+2 | g4 > d4 d4. c8 | < b4 > c4 d4 e4 | f+4 e4 d4 c4 | < b1
+#define FLUTE b4. a8 g4 f+4 | e2 g2 | a4 b4 > c4 < a4 | b1 | g4. a8 b4 > c4 | d4 c4 < b4 a4 | > c4 < b4 a4 g4 | f+2 d+2
+; choir
+#define CH_A o4 {e b}1 {e g}1 {f+ a}1 {d f+}1 {e b}1 {e g}1 {e a}1 {d+ f+}1
+#define CH_B o4 {e g}1 {d g}1 {d f+}1 {e g}1 {e g}1 {d f+}1 {c e}1 {d+ f+}1
+#define CH_C o4 {d g}1 {e g}1 {e g}1 {d f+}1 {d g}1 {e g}1 {d f+}1 {d+ f+}1
+; drums: snare d, kick c, crash >c+
+#define MARCH o2 l16 !c8 d d !d8 c8 c8 d d !d8 d8
+#define MARCHX o2 l16 {c > c+ <}8 d d !d8 c8 c8 d d !d8 d8
+#define SOFT o2 l8 c r d r c r d r
+
+A: @48 p44 V78 v84 o4 l8 [e g b g]2 [e g b g]2
+A: L @48 v84 $SEM $SC $SD $SBM $SEM $SC $SAM $SB
+A:   $SC $SG $SD $SEM $SC $SD $SAM $SB
+A:   $SG $SEM $SC $SD $SG $SEM $SD $SB
+A:   @45 v96 $PEM $PC $PAM $PB $PC $PD $PAM $PB
+A:   @48 v92 $SEM $SC $SD $SBM $SEM $SC $SAM $SB
+A:   $SC $SG $SD $SEM $SC $SD $SAM $SB
+
+B: @57 p70 V100 v96 o2 r1 r1
+B: L v96 $BE $BC $BD $BBM $BE $BC $BAM $BBM
+B:   $BC $BG $BD $BE $BC $BD $BAM $BBM
+B:   $BG $BE $BC $BD $BG $BE $BD $BBM
+B:   r1 r1 r1 r1 r1 r1 r1 r1
+B:   v104 $BE $BC $BD $BBM $BE $BC $BAM $BBM
+B:   $BC $BG $BD $BE $BC $BD $BAM $BBM
+
+C: @60 p84 V112 v110 o4 r1 r1
+C: L @60 v110 o4 $THEME_A
+C:   o4 $THEME_B
+C:   @61 v108 o4 $MAIN_G
+C:   r1 r1 r1 r1 r1 r1 r1 r1
+C:   @60 v116 o4 $THEME_A
+C:   o4 $THEME_B
+
+D: @48 p52 V96 v92 o5 r1 r1
+D: L @48 v92 r1 r1 r1 r1 r1 r1 r1 r1
+D:   o5 $DESCANT
+D:   o4 r1 r1 r1 r1 o4 g2 a2 | b2 > c2 | d2 e2 | d+1
+D:   @73 v100 o5 $FLUTE
+D:   @56 v96 o4 $THEME_A
+D:   @48 v96 o5 $DESCANT
+
+E: @52 p30 V70 v68 o4 r1 r1
+E: L v64 $CH_A $CH_B $CH_C
+E:   v56 o4 {e g}1 {e g}1 {e a}1 {d+ f+}1 {e g}1 {d f+}1 {e a}1 {d+ f+}1
+E:   v76 $CH_A $CH_B
+
+F: @47 p64 V100 v100 o2 r1 l16 V80 [e]8 V100 [e]8
+F: L l4 V100 e r e r | c r c r | d r d r | < b r b r > | e r e r | c r c r | < a r a r | b b8 b8 b b >
+F:   c r c r | < g r g r > | d r d r | e r e r | c r c r | d r d r | < a r a r | l16 [b]16 >
+F:   l4 < g r g r > | e r e r | c r c r | d r d r | < g r g r > | e r e r | d r d r | < b b8 b8 b b >
+F:   r1 r1 r1 r1 r1 r1 r1 l16 V70 < [b]8 > V90 < [b]8 >
+F:   l4 V108 e r e r | c r c r | d r d r | < b r b r > | e r e r | c r c r | < a r a r | b b8 b8 b b >
+F:   c r c r | < g r g r > | d r d r | e r e r | c r c r | d r d r | < a r a r | l16 [b]16 >
+
+G: @127 p64 V92 v92 o2 l16 [d]16 [d]8 !d4 !d8 d8
+G: L $MARCHX [$MARCH]7 $MARCHX [$MARCH]6 o2 l16 [d]16
+G:   $MARCHX [$MARCH]6 o2 l16 [d]16
+G:   [$SOFT]7 o2 l16 [d]16
+G:   $MARCHX [$MARCH]7 $MARCHX [$MARCH]6 o2 l16 [d]16
+
+H: @56 p100 V96 v88 r1 r1
+H: L r1 r1 r1 r1 r1 r1 r1 r1
+H:   r1 r1 r1 r1 r1 r1 r1 r1
+H:   o4 d1 | e1 | g1 | f+1 | d1 | e1 | a1 | f+2 d+2
+H:   r1 r1 r1 r1 r1 r1 r1 r1
+H:   o4 r1 r1 r1 r1 r1 r1 r1 r1
+H:   o4 e1 | d1 | d1 | e1 | e1 | f+1 | e1 | f+2 d+2

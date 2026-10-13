@@ -1,0 +1,4 @@
+{
+ "test_idle": {"sheet": "cadet_sheet1.webp", "box": [780, 60, 1200, 800], "height": 50},
+ "test_slash": {"sheet": "cadet_pose1.webp", "box": [150, 320, 800, 900], "height": 44}
+}

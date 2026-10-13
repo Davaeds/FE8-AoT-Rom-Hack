@@ -1,0 +1,29 @@
+#title  Shiganshina Morning
+#song   0x05
+#tempo  92
+#reverb 40
+; G major. A: flute over harp, soft strings and pizzicato (I-V6-vi-IV / I-IV-V-I).
+; B: the oboe turns to E minor (vi-IV-I-V / vi-IV-ii-V). A': flute again with a
+; violin counter-line. 24 bars, loops.
+
+#define HG o3 g o4 d g b o5 d o4 b g d
+#define HD o3 f+ o4 d f+ a o5 d o4 a f+ d
+#define HE o3 e o4 e g b o5 e o4 b g e
+#define HC o3 c o4 c e g o5 c o4 g e c
+#define HDD o3 d o4 d f+ a o5 d o4 a f+ d
+#define HAM o3 a o4 c e a o5 c o4 a e c
+#define FLUTE b4. a8 g4 d4 | a2. f+4 | g4. f+8 e4 b4 | e2. g4 | b4. > c8 d4 < b4 | > c4 < b8 a8 g4 e4 | f+4. g8 a4 f+4 | g1
+#define OBOE b4. a8 g4 e4 | e2. g4 | d4. e8 g4 b4 | a2. f+4 | g4. a8 b4 > e4 | e4 d4 c4 < g4 | a4 > c4 < b4 a4 | f+2 a2
+
+A: @46 p40 V80 v92 l8 L $HG $HD $HE $HC $HG $HC $HDD $HG
+A:   $HE $HC $HG $HDD $HE $HC $HAM $HDD
+A:   $HG $HD $HE $HC $HG $HC $HDD $HG
+B: @73 p84 V96 v100 L o5 $FLUTE
+B:   @68 v104 o4 $OBOE
+B:   @73 v100 o5 $FLUTE
+C: @48 p56 V64 v64 o4 L {b d}1 {a d}1 {g b}1 {g c}1 {b d}1 {g c}1 {a d}1 {g b}1
+C:   {g b}1 {g c}1 {g b}1 {f+ a}1 {g b}1 {g c}1 {a c}1 {f+ a}1
+C:   v72 o5 g1 | f+1 | e1 | e1 | d1 | e1 | f+1 | g1 v64 o4
+D: @45 p64 V90 v96 l4 L o2 g r d r | f+ r d r | e r b r | c r g r | g r d r | c r g r | d r a r | g r g r
+D:   e r b r | c r g r | g r d r | d r a r | e r b r | c r g r | < a r > e r | d r a r
+D:   g r d r | f+ r d r | e r b r | c r g r | g r d r | c r g r | d r a r | g r g r

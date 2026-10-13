@@ -1,0 +1,18 @@
+#title  The Walls Fell (game over)
+#song   0x3E
+#tempo  60
+#reverb 50
+; D minor requiem on the main theme's harmony: piano over strings and a quiet
+; choir, harp arpeggios. 8 bars, loops.
+
+#define ARP_DM o3 l8 d a > d f a f d < a
+#define ARP_BB o2 l8 b- > f b- > d f d < b- f
+#define ARP_GM o2 l8 g > d g b- > d < b- g d
+#define ARP_A  o2 l8 a > e a > c+ e c+ < a e
+#define ARP_GA o2 l8 g > d g b- < a > e a > c+
+
+A: @0 p72 V100 v92 L o4 a2. g4 | f2 e2 | d2 f4 e4 | c+1 | d2. e4 | f2 g2 | f4 e4 d4 c+4 | d1
+B: @48 p48 V80 v72 L o4 {d f}1 {d f}1 {d g}1 {c+ e}1 {d f}1 {d g}1 {d g}2 {c+ e}2 {d f}1
+C: @52 p36 V72 v60 L o4 a1 | b-1 | b-1 | a1 | a1 | b-1 | b-2 a2 | a1
+D: @48 p64 V96 v88 L o2 d1 | < b-1 > | < g1 > | < a1 > | d1 | < b-1 > | < g2 a2 > | d1
+E: @46 p96 V72 v64 L $ARP_DM $ARP_BB $ARP_GM $ARP_A $ARP_DM $ARP_BB $ARP_GA $ARP_DM

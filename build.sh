@@ -54,6 +54,12 @@ fi
 python3 "$root/tools/menuplates.py" "$clean" "$out/gen" ||
   die "tools/menuplates.py failed"
 
+# Music (AoT/AoT.event includes build/gen/music.event): the MML songs in
+# tools/music/songs, played on a General MIDI voice table that points at FE8's
+# own instrument samples, built from the clean ROM.
+python3 "$root/tools/music/make.py" "$clean" "$out/gen" ||
+  die "tools/music/make.py failed"
+
 "$root/MakeHack.sh" "$@" 2>&1 | tee "$log"
 
 # MakeHack.sh exits 0 even when assembly fails (the ROM is then an unmodified

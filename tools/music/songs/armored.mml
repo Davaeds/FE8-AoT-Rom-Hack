@@ -1,0 +1,30 @@
+#title  Armor (the Armored Titan breaks the gate)
+#song   0x1C
+#tempo  120
+#reverb 30
+; C minor, a low brass riff that moves to A-flat and G; horns above; half-time
+; drums (A). B: the horns turn the main theme (title.mml) into a fanfare of doom
+; over the same riff. 16 bars, loops.
+
+#define RC  c4 c8 c8 e-4 d8 c8
+#define RAB <a-4 a-8 a-8> c4 <b-8 a-8>
+#define RG  <g4 g8 g8 b-4 a-8 g8>
+#define RF  f4 f8 f8 a-4 g8 f8
+#define HALF o2 !c4 r4 !{d >c+<}4 r8 c8
+#define HALF2 o2 !c4 r4 !d4 r8 c8
+
+A: @58 p56 V112 v104 o2 L $RC $RC $RAB $RG $RC $RC $RAB $RG
+A:   $RC $RC $RAB $RG $RC $RAB $RF $RG
+B: @57 p72 V104 v96 o3 L $RC $RC $RAB $RG $RC $RC $RAB $RG
+B:   $RC $RC $RAB $RG $RC $RAB $RF $RG
+C: @60 p84 V108 v104 o4 L g2 a-4 g4 | e-2. d4 | c2 e-4 f4 | g1
+C:   g2 > c4 < b4 | a-2 f4 g4 | a-4 g4 f4 e-4 | d1
+C:   @61 v112 c4 g4 g4. f8 | e-4 f4 g2 | a-4 g4 f4 e-4 | d2 < b2 > | c4 g4 g4. f8 | e-4 f4 g4 a-4 | > c4 < b-4 a-4 g4 | g1 @60 v104
+D: @48 p36 V80 v80 o5 l16 L [c e-]16 [c e-]8 [< b > d]8 [c e-]16 [c e-]8 [< b > d]8
+D:   v92 [c e-]8 [c e-]8 [c e-]8 [< b > d]8 [c e-]8 [c e-]8 [c f]8 [< b > d]8 v80
+E: @47 p64 V110 v104 o2 L [c4 r4 g4 r4]2 c4 r4 c4 r4 g4 g8 g8 g4 r4 [c4 r4 g4 r4]2 c4 r4 c4 r4 l16 [g]16
+E:   l4 [c r g r]2 c r c r g g8 g8 g r c r g r c r c r f r c r l16 [g]16
+F: @127 p64 V100 v96 L $HALF [$HALF2]3 $HALF [$HALF2]3
+F:   $HALF [$HALF2]3 $HALF [$HALF2]2 o2 l16 d d d d f f f f a a a a > c c d d <
+G: @52 p50 V88 v80 L r1 r1 r1 r1 r1 r1 r1 r1
+G:   o4 {c g}1 {c e-}1 {c e-}1 {< b > d}1 {c g}1 {c e-}1 {c f}1 {< b > d}1

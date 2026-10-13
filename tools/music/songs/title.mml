@@ -1,0 +1,84 @@
+#title  Wings of Freedom (title screen, main theme)
+#song   0x43
+#tempo  84
+#reverb 40
+; D minor. The game's main theme: i-VI-III-VII / i-VI-iv-V (A), then the brass
+; answer (B). Intro 4 bars (choir and piano), A, B, then the whole orchestra
+; plays A and B again, a 4-bar coda, and the loop returns to A.
+; 40 bars, loop from bar 5.
+
+; piano, one broken chord per bar
+#define PDM o3 l8 d a > d < a > f < a > d < a
+#define PBB o2 l8 b- > f b- f > d < f b- f
+#define PF  o3 l8 f > c f c a c f c
+#define PC  o3 l8 c g > c < g > e < g > c < g
+#define PGM o2 l8 g > d g d b- d g d
+#define PA  o2 l8 a > e a e > c+ < e a e
+; strings, sixteenths with 3+3+2 accents, one bar each
+#define SDM o4 l16 [!d d a !d d a !f d]2
+#define SBB o4 l16 [!d d b- !d d b- !f d]2
+#define SF  o4 l16 [!c c a !c c a !f c]2
+#define SC  o4 l16 [!c c g !c c g !e c]2
+#define SGM o4 l16 [!d d b- !d d b- !g d]2
+#define SA  o4 l16 [!c+ c+ a !c+ c+ a !e c+]2
+#define SGA o4 l16 !d d b- !d d b- !g d !c+ c+ a !c+ c+ a !e c+
+; choir chords
+#define CA o4 {d f a}1 {d f b-}1 {c f a}1 {c e g}1 {d f a}1 {d f b-}1 {d g b-}1 {c+ e a}1
+#define CB o4 {d f b-}1 {c f a}1 {d g b-}1 {c+ e a}1 {d f a}1 {d f b-}1 {d g b-}2 {c+ e a}2 {d f a}1
+; melodies
+#define MA d4 a4 a4. g8 | f4 g4 a2 | > c4 < a4 g4 f4 | e2 c2 | d4 a4 a4. g8 | f4 g4 a4 b-4 | > d4 c4 < b-4 a4 | a1
+#define MB > d2 c4 < b-4 | > c2 < a2 | b-4 a4 g4 f4 | e2. c+4 | d4 f4 a4 > d4 | d2 c4 < b-4 | a4. g8 f4 e4 | d1
+; drums (o2: kick c, snare d, closed hat f+, toms f a, crash >c+)
+#define TAIKO o2 l8 !c r a a !c r f f
+#define ROCK o2 l8 c f+ d f+ c c d f+
+#define ROCKX o2 l8 {c >c+<} f+ d f+ c c d f+
+
+A: @48 p56 V100 v96 r1 r1 r1 r1
+A: L v92 o4 $MA
+A:   o5 f1 | f2 e2 | d1 | e1 | f2 a2 | b-2 a4 g4 | f2 e2 | d1
+A:   v104 o5 $MA
+A:   o5 $MB
+A:   o5 d2 f2 | e2 g2 | a1 | d1
+
+B: @60 p76 V96 v80 r1 r1 r1 r1
+B: L @60 v80 o4 f1 | d1 | c1 | c1 | f1 | d2 f2 | g2 e2 | e1
+B:   @61 v104 o4 $MB
+B:   @61 v100 o4 f2 e2 | d2 c2 | c2 d2 | c2 e2 | f2 e2 | d2 f2 | g2 e2 | c+1
+B:   o4 $MB
+B:   o4 f2 d2 | e2 g2 | f1 | d1
+
+C: @52 p40 V84 v64 o4 {d f a}1 {d f b-}1 {c f a}1 {c e g}1
+C: L v72 $CA
+C:   v88 $CB
+C:   v96 $CA
+C:   v100 $CB
+C:   o4 {d f b-}1 {c e g}1 {d f a}1 {d f a}1
+
+D: @0 p88 V84 v88 $PDM $PBB $PF $PC
+D: L @0 v88 $PDM $PBB $PF $PC $PDM $PBB $PGM $PA
+D:   @48 v84 $SBB $SF $SGM $SA $SDM $SBB $SGA $SDM
+D:   v92 $SDM $SBB $SF $SC $SDM $SBB $SGM $SA
+D:   $SBB $SF $SGM $SA $SDM $SBB $SGA $SDM
+D:   $SBB $SC $SDM $SDM
+
+E: @48 p64 V104 v100 o2 d1 | < b-1 > | f1 | c1
+E: L o2 d1 | < b-1 > | f1 | c1 | d1 | < b-1 > | < g1 > | < a1 >
+E:   < b-1 > | f1 | < g1 > | < a1 > | d1 | < b-1 > | < g2 a2 > | d1
+E:   l8 [d]8 [< b- >]8 [f]8 [c]8 [d]8 [< b- >]8 [< g >]8 [< a >]8
+E:   [< b- >]8 [f]8 [< g >]8 [< a >]8 [d]8 [< b- >]8 [< g >]4 [< a >]4 [d]8
+E:   o2 < b-1 > | c1 | d1 | d1
+
+F: @47 p64 V100 v100 o2 r1 r1 r1 l16 V60 a a a a V75 a a a a V90 a a a a V105 a a a a
+F: L V100 o2 d2 r2 | < b-2 > r2 | f2 r2 | c2 r2 | d2 r2 | < b-2 > r2 | < g2 > r2 | < a4 a4 a4 a4 >
+F:   < b-4 r8 b-8 b-4 r4 > | f4 r8 f8 f4 r4 | < g4 r8 g8 g4 r4 > | < a4 r8 a8 a4 a4 >
+F:   d4 r8 d8 d4 r4 | < b-4 r8 b-8 b-4 r4 > | < g4 r8 g8 a4 a4 > | d4 r4 l16 V80 a a a a V100 a a a a
+F:   V104 l8 [d d r4]2 [< b- b- > r4]2 [f f r4]2 [c c r4]2 [d d r4]2 [< b- b- > r4]2 [< g g > r4]2 [< a a > r4]2
+F:   [< b- b- > r4]2 [f f r4]2 [< g g > r4]2 [< a a > r4]2 [d d r4]2 [< b- b- > r4]2 < g g > r4 < a a > r4 | l16 [d]16
+F:   l4 < b- r b- r > | c r c r | l16 V70 d d d d V85 d d d d V100 d d d d V115 d d d d | V110 d4 r2.
+
+G: @127 p64 V96 v96 r1 r1 r1 r1
+G: L r1 r1 r1 r1 r1 r1 r1 r1
+G:   [$TAIKO]7 o2 l16 a a a a f f f f c c c c d d d d
+G:   $ROCKX [$ROCK]6 o2 l16 d d d d f f a a > c c d d < d d d d
+G:   $ROCKX [$ROCK]6 o2 l16 d d d d f f a a > c c d d < d d d d
+G:   o2 l8 c r d r c c d d | c r d r l16 d d d d f f a a | {c > c+ <}2 r2 | r1

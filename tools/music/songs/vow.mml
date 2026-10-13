@@ -1,0 +1,54 @@
+#title  Every Last One (Eren's vow)
+#song   0x28
+#tempo  72
+#reverb 50
+; D minor. Builds from a string tremolo and a lone piano to the full main theme:
+; piano alone (4 bars), cellos and choir take theme A (4), brass sings theme B
+; over driving strings (8), and the whole orchestra states theme A (4), ending
+; on the dominant so the loop falls back into the quiet opening. 20 bars.
+
+#define TREM_D o3 l16 V64 [d]16
+#define S16_DM o4 l16 [!d d a !d d a !f d]2
+#define S16_BB o4 l16 [!d d b- !d d b- !f d]2
+#define S16_F  o4 l16 [!c c a !c c a !f c]2
+#define S16_C  o4 l16 [!c c g !c c g !e c]2
+#define S16_GM o4 l16 [!d d b- !d d b- !g d]2
+#define S16_A  o4 l16 [!c+ c+ a !c+ c+ a !e c+]2
+#define S16_GA o4 l16 !d d b- !d d b- !g d !c+ c+ a !c+ c+ a !e c+
+
+A: @48 p56 V100 v84 L r1 r1 r1 r1
+A:   o3 d4 a4 a4. g8 | f4 g4 a2 | > c4 < a4 g4 f4 | e2 c2
+A:   o4 f1 | f2 e2 | d1 | e1 | f2 a2 | b-2 a4 g4 | f2 e2 | d1
+A:   v100 o5 d4 a4 a4. g8 | f4 g4 a2 | > d4 c4 < b-4 a4 | a1 v84
+
+B: @48 p40 V96 v72 L $TREM_D o2 l16 [b-]16 [g]16 [a]16
+B:   o3 l16 [d]16 o2 l16 [b-]16 o3 l16 [c]16 [c]16
+B:   v84 V96 $S16_BB $S16_F $S16_GM $S16_A $S16_DM $S16_BB $S16_GA $S16_DM
+B:   v96 $S16_DM $S16_BB $S16_GM $S16_A v72
+
+C: @0 p84 V96 v92 L o4 r4 d4 a4 a8 g8 | f2 d2 | g4 b-4 a4 g4 | e2 c+2
+C:   o3 l8 d a > d < a > f < a > d < a | o2 b- > f b- f > d < f b- f | o3 f > c f c a c f c | o3 c g > c < g > e < g > c < g
+C:   r1 r1 r1 r1 r1 r1 r1 r1
+C:   r1 r1 r1 r1
+
+D: @52 p72 V84 v68 L r1 r1 r1 r1
+D:   o4 {d f a}1 {d f b-}1 {c f a}1 {c e g}1
+D:   v84 {d f b-}1 {c f a}1 {d g b-}1 {c+ e a}1 {d f a}1 {d f b-}1 {d g b-}2 {c+ e a}2 {d f a}1
+D:   v100 {d f a}1 {d f b-}1 {d g b-}1 {c+ e a}1 v68
+
+E: @61 p92 V108 v100 L r1 r1 r1 r1 r1 r1 r1 r1
+E:   o4 > d2 c4 < b-4 | > c2 < a2 | b-4 a4 g4 f4 | e2. c+4 | d4 f4 a4 > d4 | d2 c4 < b-4 | a4. g8 f4 e4 | d1
+E:   o4 d4 a4 a4. g8 | f4 g4 a2 | > d4 c4 < b-4 a4 | a1
+
+F: @47 p64 V104 v100 L r1 r1 r1 r1 r1 r1 r1 l16 V50 a a a a V60 a a a a V70 a a a a V80 a a a a
+F:   l4 V90 < b- r b- r > | f r f r | < g r g r | a r a a > | d r d r | < b- r b- r | g r a r > | d r l16 V80 a a a a V100 a a a a
+F:   l8 V110 d d r4 d d r4 | < b- b- r4 b- b- r4 > | < g g r4 g g r4 > | l16 < [a]16 >
+
+G: @127 p64 V96 v92 L r1 r1 r1 r1 r1 r1 r1 r1
+G:   r1 r1 r1 r1 r1 r1 r1 o2 l16 d d d d f f f f a a a a > c c d d <
+G:   o2 {c > c+ <}2 r2 | o2 c2 > c+2 < | o2 c2 c4 d4 | o2 l16 d d d d d d d d {c > c+ <}4 r4
+
+H: @48 p64 V104 v96 L o2 d1 | < b-1 > | < g1 > | < a1 >
+H:   d1 | < b-1 > | f1 | c1
+H:   < b-1 > | f1 | < g1 > | < a1 > | d1 | < b-1 > | < g2 a2 > | d1
+H:   d1 | < b-1 > | < g1 > | < a1 >

@@ -13,6 +13,7 @@
 #include "Graphics/ChapterIntro.event"
 #include "Graphics/BattleAnims.event"
 #include "Engine/Engine.event"
+#include "../build/gen/music.event"
 #include "Maps/Shiganshina.event"
 #include "Events/Prologue.event"
 #include "Events/Chapter2.event"

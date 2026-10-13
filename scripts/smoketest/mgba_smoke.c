@@ -12,10 +12,17 @@
  *                       joined with '+', e.g. A+B
  *   shot NAME           write OUTDIR/NAME.ppm (240x160 RGB)
  *   dump NAME ADDR LEN  write LEN bytes of the bus from ADDR (hex) to OUTDIR/NAME.bin
+ *   record NAME         start writing the sound output to OUTDIR/NAME.wav
+ *                       (stereo, 16-bit, 32768 Hz) until "stop"
+ *   stop                finish the recording
+ *   songlog             from now on, print "song FRAME PLAYER ID" whenever one of
+ *                       the first four music players starts a new song (ID is
+ *                       the song table index, or -1 if not found)
  *
  * For each shot, prints "shot NAME frame=F fnv1a=HASH" to stdout so two runs
  * can be compared without looking at the images.
  */
+#include <mgba/core/blip_buf.h>
 #include <mgba/core/core.h>
 #include <mgba/core/log.h>
 #include <mgba/internal/gba/input.h>
@@ -36,12 +43,87 @@ static void quietLog(struct mLogger* logger, int category, enum mLogLevel level,
 static unsigned width, height;
 static color_t* video;
 static unsigned long frame;
+static FILE* wav;
+static unsigned long wavSamples;
+
+#define AUDIO_RATE 32768
+
+static void put32(FILE* f, uint32_t v) {
+	for (int i = 0; i < 4; ++i) {
+		fputc((v >> (8 * i)) & 0xFF, f);
+	}
+}
+
+static void wavHeader(FILE* f, uint32_t samples) {
+	fseek(f, 0, SEEK_SET);
+	fwrite("RIFF", 1, 4, f);
+	put32(f, 36 + samples * 4);
+	fwrite("WAVEfmt ", 1, 8, f);
+	put32(f, 16);
+	put32(f, 1 | (2 << 16));              /* PCM, 2 channels */
+	put32(f, AUDIO_RATE);
+	put32(f, AUDIO_RATE * 4);
+	put32(f, 4 | (16 << 16));             /* block align 4, 16 bits */
+	fwrite("data", 1, 4, f);
+	put32(f, samples * 4);
+}
+
+/* Drain the emulator's sound buffers every frame; keep the samples while recording. */
+static void audio(struct mCore* core) {
+	struct blip_t* l = core->getAudioChannel(core, 0);
+	struct blip_t* r = core->getAudioChannel(core, 1);
+	short buf[2048];
+	int avail;
+	while ((avail = blip_samples_avail(l)) > 0) {
+		if (avail > 1024) {
+			avail = 1024;
+		}
+		blip_read_samples(l, buf, avail, 1);
+		blip_read_samples(r, buf + 1, avail, 1);
+		if (wav) {
+			for (int i = 0; i < avail * 2; ++i) {
+				fputc(buf[i] & 0xFF, wav);
+				fputc((buf[i] >> 8) & 0xFF, wav);
+			}
+			wavSamples += (unsigned long) avail;
+		}
+	}
+}
+
+/* FE8U sound tables: music players (12 bytes each, MusicPlayerInfo pointer
+ * first) and songs (8 bytes each, song header pointer first). */
+#define MPLAYER_TABLE 0x08224404u
+#define SONG_TABLE 0x08224470u
+static int songlog;
+static uint32_t lastHeader[4];
+
+static void logSongs(struct mCore* core) {
+	for (int p = 0; p < 4; ++p) {
+		uint32_t info = core->busRead32(core, MPLAYER_TABLE + 12 * p);
+		uint32_t header = core->busRead32(core, info);
+		if (header == lastHeader[p]) {
+			continue;
+		}
+		lastHeader[p] = header;
+		int id = -1;
+		for (int i = 0; i < 0x400 && id < 0; ++i) {
+			if (core->busRead32(core, SONG_TABLE + 8 * i) == header) {
+				id = i;
+			}
+		}
+		printf("song %lu %d 0x%X\n", frame, p, (unsigned) id);
+	}
+}
 
 static void step(struct mCore* core, uint32_t keys, unsigned frames) {
 	core->setKeys(core, keys);
 	for (unsigned i = 0; i < frames; ++i) {
 		core->runFrame(core);
+		audio(core);
 		++frame;
+		if (songlog) {
+			logSongs(core);
+		}
 	}
 }
 
@@ -110,6 +192,9 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 	core->reset(core);
+	core->setAudioBufferSize(core, 4096);
+	blip_set_rates(core->getAudioChannel(core, 0), core->frequency(core), AUDIO_RATE);
+	blip_set_rates(core->getAudioChannel(core, 1), core->frequency(core), AUDIO_RATE);
 
 	FILE* script = fopen(argv[3], "r");
 	if (!script) {
@@ -152,6 +237,29 @@ int main(int argc, char** argv) {
 					fclose(f);
 				}
 			}
+		} else if (strcmp(cmd, "record") == 0 && fields >= 2) {
+			char path[4096];
+			snprintf(path, sizeof(path), "%s/%s.wav", argv[2], arg);
+			if (wav) {
+				wavHeader(wav, (uint32_t) wavSamples);
+				fclose(wav);
+			}
+			wav = fopen(path, "wb");
+			wavSamples = 0;
+			if (wav) {
+				wavHeader(wav, 0);
+			} else {
+				perror(path);
+				ok = 0;
+			}
+		} else if (strcmp(cmd, "stop") == 0) {
+			if (wav) {
+				wavHeader(wav, (uint32_t) wavSamples);
+				fclose(wav);
+				wav = NULL;
+			}
+		} else if (strcmp(cmd, "songlog") == 0) {
+			songlog = 1;
 		} else if (strcmp(cmd, "shot") == 0 && fields >= 2) {
 			ok = shot(argv[2], arg);
 		} else {
@@ -160,6 +268,10 @@ int main(int argc, char** argv) {
 		}
 	}
 	fclose(script);
+	if (wav) {
+		wavHeader(wav, (uint32_t) wavSamples);
+		fclose(wav);
+	}
 	core->deinit(core);
 	free(video);
 	return ok ? 0 : 1;

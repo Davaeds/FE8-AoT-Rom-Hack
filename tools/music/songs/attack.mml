@@ -1,0 +1,92 @@
+#title  Wings Against the Wall (Titans attack: enemy phase, chapter 1 assault)
+#song   0x16
+#tempo  168
+#reverb 20
+; D minor. Intro 4 bars, then A (brass theme over string ostinato), A' (an
+; octave up), B (relative major, rising answer), C (the Titan motif from
+; titanbattle.mml in the low brass over a D pedal), A'' (the choir sings the
+; theme). 44 bars, loop from bar 5 (about 57 seconds).
+
+; string ostinato, one bar each (3+3+2 accents)
+#define DM [!d d a !d d a !f d]2
+#define BB [!d d b- !d d b- !f d]2
+#define FF [!c c a !c c a !f c]2
+#define CC [!c c g !c c g !e c]2
+#define GM [!d d b- !d d b- !g d]2
+#define AA [!c+ c+ a !c+ c+ a !e c+]2
+#define DTR [!d d a d]4
+#define BAT [!d d b- d]2 [!c+ c+ a c+]2
+#define GTR [!d d g d]4
+#define ETR [!e- e- g e-]4
+#define ATR [!c+ c+ a c+]4
+; bass, one bar each
+#define BD o2 d d o3 d o2 d d d o3 d o2 d
+#define BBF o1 b- b- o2 b- o1 b- b- b- o2 b- o1 b-
+#define BF o2 f f o3 f o2 f f f o3 f o2 f
+#define BC o2 c c o3 c o2 c c c o3 c o2 c
+#define BG o1 g g o2 g o1 g g g o2 g o1 g
+#define BA o1 a a o2 a o1 a a a o2 a o1 a
+#define BBA o1 b- b- b- b- a a a a
+#define BEB o2 e- e- e- e- e- e- e- e-
+; melodies
+#define THEME d4. a8 a4 g8 a8 | b-2 a4 g4 | a4. f8 f4 e8 f8 | g2. e4 | d4. a8 a4 > c8 < b-8 | > d2 c4 < b-4 | b-4. a8 g4 f4 | e2 c+2
+#define THEME2 d4. a8 a4 g8 a8 | b-2 a4 g4 | a4. f8 f4 e8 f8 | g2. e4 | d4. a8 a4 > c8 < b-8 | > d2 c4 < b-4 | g4. a8 b-4 > c4 | < a1
+#define ANSWER d4. e8 f4 g4 | e4. f8 g4 a4 | f4 a4 > d4 c4 < | a2. r4 | d4. e8 f4 g4 | a4. b-8 > c4 d4 | c+4 < b-4 a4 g4 | a1
+#define MOTIF d4. d8 c+4 c4 | < b2 b-2 > | d4. d8 c+4 c4 | < b4 b-4 a4 b-4 > | g4. g8 f+4 f4 | e-2 d2 | < b-4 a4 g+4 g4 | a1 >
+; choir
+#define CHA {d a}1 {d f}1 {c f}1 {c g}1 {d a}1 {d f}1 {d g}1 {c+ e}1
+#define CHB {d f}1 {e g}1 {f a}1 {f a}1 {d f}1 {e g}1 {c+ e}1 {c+ e}1
+#define CHC {d a}1 {d b-}2 {c+ a}2 {d a}1 {d b-}2 {c+ a}2 {d g}1 {e- g}1 {d b-}2 {c+ e}2 {c+ e}1
+; drums: kick c, snare d, crash >c+, toms f a >c (octave 2)
+#define BEAT o2 !c r d r c c !d r
+#define CRASH o2 {c >c+<} r d r c c !d r
+#define HALF o2 !c r r c !d r r r
+#define FILL o2 l16 d d d d f f a a > c c c c < d d d d l8
+
+A: @48 p48 V80 o4 l16 v56 $DM v64 $DM v72 $DM v84 $DM
+A: L o4 l16 v84 $DM $BB $FF $CC $DM $BB $GM $AA
+A:   > $DM $BB $FF $CC $DM $BB $GM $AA <
+A:   $BB $CC $DM $DM $BB $CC $AA $AA
+A:   $DTR $BAT $DTR $BAT $GTR $ETR $BAT $ATR
+A:   $DM $BB $FF $CC $DM $BB $GM $AA
+
+B: @48 p72 V96 v100 l8 r1 r1 $BD $BD
+B: L l8 $BD $BBF $BF $BC $BD $BBF $BG $BA
+B:   $BD $BBF $BF $BC $BD $BBF $BG $BA
+B:   $BBF $BC $BD $BD $BBF $BC $BA $BA
+B:   $BD $BBA $BD $BBA $BG $BEB $BBA $BA
+B:   $BD $BBF $BF $BC $BD $BBF $BG $BA
+
+C: @61 p80 V110 v108 o4 r1 r1 r1 r1
+C: L o4 $THEME
+C:   > $THEME2 <
+C:   o4 $ANSWER
+C:   r1 r1 r1 r1 r1 r1 r1 r1
+C:   o4 f2 e2 | d2 c2 | c2 d2 | c2 e2 | f2 e2 | d2 f2 | g2 e2 | c+1
+
+D: @52 p40 V84 v76 o4 r1 r1 r1 {d a}1
+D: L o4 v76 $CHA
+D:   {f a}1 {f b-}1 {f a}1 {e g}1 {f a}1 {f b-}1 {g b-}1 {e a}1
+D:   $CHB
+D:   v84 $CHC
+D:   v88 o4 $THEME v76
+
+E: @47 p64 V100 v104 o2 r1 r1 l8 [d]8 l16 V70 d d d d V80 d d d d V95 d d d d V115 d d d d
+E: L V105 [d4 r4 d8 d8 r4]2 [c4 r4 c8 c8 r4]2 [d4 r4 d8 d8 r4]3 < a4 a4 a8 a8 a4 >
+E:   [d4 r4 d8 d8 r4]2 [c4 r4 c8 c8 r4]2 [d4 r4 d8 d8 r4]3 l16 < [a]16 >
+E:   < l4 b- r b- r > | c r c r | d r d r | d r d r | < b- r b- r > | c r c r | < a r a r | l16 [a]16 >
+E:   l4 d r < a r > | d r < a r > | d r < a r > | d r < a a > | < g r g r > | e- r e- r | < b- r a r | l16 [a]16 >
+E:   l4 [d r d8 d8 r]2 [c r c8 c8 r]2 [d r d8 d8 r]3 < a a a8 a8 a >
+
+F: @127 p64 V96 v96 l8 r1 r1 o2 l16 [f f a a]2 [>c c< a a]2 [d]16
+F: L l8 $CRASH [$BEAT]7 $CRASH [$BEAT]6 $FILL
+F:   $CRASH [$BEAT]6 $FILL
+F:   $CRASH [$HALF]6 $FILL
+F:   $CRASH [$BEAT]6 $FILL
+
+G: @57 p56 V104 v96 r1 r1 r1 r1
+G: L r1 r1 r1 r1 r1 r1 r1 r1
+G:   r1 r1 r1 r1 r1 r1 r1 r1
+G:   o3 d1 | e1 | f1 | f1 | d1 | e1 | e1 | e1
+G:   o3 $MOTIF
+G:   r1 r1 r1 r1 r1 r1 r1 r1

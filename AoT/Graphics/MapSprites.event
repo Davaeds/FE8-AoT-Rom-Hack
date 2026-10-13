@@ -11,6 +11,10 @@
 
 #define AoT_SMSTable 0x8AF880
 #define AoT_MMSTable 0x9A2E00
+// Faction palettes (blue, red, green, grey, purple), redrawn for AoT colours:
+// see tools/art/msprites/pal.py for what each slot means.
+PUSH; ORG 0x59EE20; #incbin "MapSprites/palettes.dmp"; POP
+
 #define AoT_WalkScript 0x8200348  // vanilla civilian walk script: one 32x32 object per frame
 
 #define AoT_SetSMS(id, size, sheet) "PUSH; ORG AoT_SMSTable + (id) * 8; SHORT 0 size; POIN sheet; POP"
@@ -100,11 +104,11 @@ ALIGN 4
 AoT_SetSMS(AoT_SmsEren,     0, AoT_SMS_Eren)
 AoT_SetSMS(AoT_SmsMikasa,   0, AoT_SMS_Mikasa)
 AoT_SetSMS(AoT_SmsArmin,    0, AoT_SMS_Armin)
-AoT_SetSMS(AoT_SmsGarrison, 1, AoT_SMS_Garrison)
-AoT_SetSMS(AoT_SmsHannes,   1, AoT_SMS_Hannes)
-AoT_SetSMS(AoT_SmsCarla,    1, AoT_SMS_Carla)
-AoT_SetSMS(AoT_SmsTownsman, 1, AoT_SMS_Townsman)
-AoT_SetSMS(AoT_SmsTownswoman, 1, AoT_SMS_Townswoman)
+AoT_SetSMS(AoT_SmsGarrison, 0, AoT_SMS_Garrison)
+AoT_SetSMS(AoT_SmsHannes,   0, AoT_SMS_Hannes)
+AoT_SetSMS(AoT_SmsCarla,    0, AoT_SMS_Carla)
+AoT_SetSMS(AoT_SmsTownsman, 0, AoT_SMS_Townsman)
+AoT_SetSMS(AoT_SmsTownswoman, 0, AoT_SMS_Townswoman)
 AoT_SetSMS(AoT_SmsTitan,    2, AoT_SMS_TitanA)
 AoT_SetSMS(AoT_SmsTitanB,   2, AoT_SMS_TitanB)
 AoT_SetSMS(AoT_SmsSmiling,  2, AoT_SMS_Smiling)
@@ -163,12 +167,12 @@ ALIGN 4
 AoT_MMS_Dummy:
 #incext Png2Dmp "MapSprites/dummy_mms.png" --lz77
 
-AoT_SetSMS(AoT_SmsCadetEren, 1, AoT_SMS_CadetEren)
-AoT_SetSMS(AoT_SmsCadetMikasa, 1, AoT_SMS_CadetMikasa)
-AoT_SetSMS(AoT_SmsCadetArmin, 1, AoT_SMS_CadetArmin)
-AoT_SetSMS(AoT_SmsCadetJean, 1, AoT_SMS_CadetJean)
-AoT_SetSMS(AoT_SmsCadet, 1, AoT_SMS_Cadet)
-AoT_SetSMS(AoT_SmsDummy, 1, AoT_SMS_Dummy)
+AoT_SetSMS(AoT_SmsCadetEren, 0, AoT_SMS_CadetEren)
+AoT_SetSMS(AoT_SmsCadetMikasa, 0, AoT_SMS_CadetMikasa)
+AoT_SetSMS(AoT_SmsCadetArmin, 0, AoT_SMS_CadetArmin)
+AoT_SetSMS(AoT_SmsCadetJean, 0, AoT_SMS_CadetJean)
+AoT_SetSMS(AoT_SmsCadet, 0, AoT_SMS_Cadet)
+AoT_SetSMS(AoT_SmsDummy, 2, AoT_SMS_Dummy)
 AoT_SetMMS(AoT_ClsCadetEren, AoT_MMS_CadetEren)
 AoT_SetMMS(AoT_ClsCadetMikasa, AoT_MMS_CadetMikasa)
 AoT_SetMMS(AoT_ClsCadetArmin, AoT_MMS_CadetArmin)

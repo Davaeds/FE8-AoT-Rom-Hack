@@ -1,0 +1,12 @@
+#title  Chapter start (sting)
+#song   0x316
+#tempo  100
+#reverb 40
+#priority 5
+; Timpani roll into the opening notes of the main theme on brass and choir.
+; Plays once (no loop).
+
+A: @61 p72 V112 v104 r2. o3 a8 > d8 | a2. r4
+B: @52 p48 V96 v92 r1 | o4 {d f a}2. r4
+C: @47 p64 V100 v104 o2 l16 V50 a a a a V65 a a a a V80 a a a a V100 a a a a | V120 d4 r2.
+D: @48 p64 V100 v96 r1 | o2 {d a}2. r4

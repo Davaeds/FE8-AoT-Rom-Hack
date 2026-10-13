@@ -1,0 +1,24 @@
+#title  Mother (Carla)
+#song   0x29
+#tempo  60
+#reverb 60
+; A minor: i-VI-III-VII / i-VI-iv-V. A: piano with a violin line. B: the choir
+; carries the melody, the violins answer underneath (i-VI-III-VII / iv-i-iv-V).
+; 16 bars, loops.
+
+#define LAM o2 a o3 e a o4 c e c o3 a e
+#define LF  o2 f o3 c f a o4 c o3 a f c
+#define LC  o2 c o3 g o4 c e g e c o3 g
+#define LG  o2 g o3 d g b o4 d o3 b g d
+#define LDM o2 d o3 a o4 d f a f d o3 a
+#define LE  o2 e o3 b o4 e g+ b g+ e o3 b
+
+A: @0 p56 V72 v88 l8 L $LAM $LF $LC $LG $LAM $LF $LDM $LE
+A:   $LAM $LF $LC $LG $LDM $LAM $LDM $LE
+B: @48 p76 V88 v92 o5 L e2 d4 c4 | c2 < a2 > | g4. e8 g4 > c4 < | b2. a8 g8
+B:   a2 g4 e4 | f4. e8 d4 c4 | d4 e8 f8 a4 g4 | g+1
+B:   v80 o4 e1 | f1 | g1 | g1 | a1 | e1 | a1 | g+1 v92
+C: @48 p40 V60 v60 o4 L {c e}1 {c f}1 {c e}1 {d g}1 {c e}1 {c f}1 {d f}1 {d e}1
+C:   {c e}1 {c f}1 {c e}1 {d g}1 {d f}1 {c e}1 {d f}1 {d e}1
+D: @52 p30 V84 v76 L r1 r1 r1 r1 r1 r1 r1 r1
+D:   o4 a2 > c4 e4 | f2. e4 | e2 d4 c4 | d2. r4 | d2 f4 a4 | a2 g4 e4 | f4 e4 d4 c4 | < b1

@@ -1,0 +1,18 @@
+#title  Sixty Meters (the Colossal Titan appears)
+#song   0x11
+#tempo  80
+#reverb 60
+; Pedal D with a rising minor-second tremolo, tritones in the choir, heartbeat
+; timpani (A); then the Titan motif (titanbattle.mml) in the tuba under the
+; tremolo and choir clusters (B). 16 bars, loops.
+
+A: @48 p44 V70 o4 l16 L v60 [d e-]8 v64 [d e-]8 v68 [d e-]8 v72 [d e-]8 v80 [e f]8 v88 [e f]8 v96 [f g-]8 v108 [f g-]8
+A:   v84 [d e-]8 v88 [d e-]8 v92 [d e-]8 v96 [c+ d]8 v100 [d e-]8 v104 [e- f]8 v108 [c+ d]8 v112 [c+ d]8
+B: @48 p70 V100 l1 L o2 v80 d d d d v90 d d v100 d d
+B:   v96 d d d d d d d d
+C: @52 p36 V76 v76 o4 L {d a}1 {d a}1 {e- a}1 {e- a}1 {e b-}1 {e b-}1 {f b}1 {f b}1
+C:   v84 {d a}1 {d b-}1 {c+ a}1 {d a}1 {d a}1 {e- b-}1 {c+ g}1 {c+ a}1 v76
+D: @47 p64 V110 v100 o2 L [d8. d16 r4 r2]8
+D:   [d8. d16 r4 r2]6 [d8. d16 r8 d8. d16 r8 d8 r8]2
+E: @58 p60 V90 v84 o1 L d1 d1 d1 d1 d1 d1 d1 d1
+E:   o2 d4. d8 c+4 c4 | < b2 b-2 > | d4. d8 c+4 c4 | < b4 b-4 a4 b-4 > | < g4. g8 f+4 f4 > | e-2 d2 | < b-4 a4 g+4 g4 | a1 o1

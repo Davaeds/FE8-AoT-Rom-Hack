@@ -1,0 +1,59 @@
+#title  Jaws (battle, a Titan attacks)
+#song   0x1A
+#tempo  138
+#reverb 30
+; C minor. The Titan motif: a slow chromatic descent in the low brass over a
+; pedal C, string ostinato and half-time drums; then the choir sings over
+; Ab-Fm-Db-G with brass stabs. Intro 2 bars, A 8, B 8, A' 8 (motif an octave
+; up in the horns). 26 bars, loop from bar 3.
+
+; strings, sixteenths, one bar each
+#define SCM o4 l16 [!c c g c !c c a- c]2
+#define SCM2 o4 l16 [!c c g c !c c b c]2
+#define SAB o4 l16 [!c c a- c !c c e- c]2
+#define SFM o4 l16 [!c c a- c !c c f c]2
+#define SDB o4 l16 [!d- d- a- d- !d- d- f d-]2
+#define SG o3 l16 [!b b > d < b !b b > g < b]2
+; the Titan motif, 8 bars
+#define MOTIF c4. c8 < b4 b-4 > | < a-2 g2 > | c4. c8 < b4 b-4 > | < a-4 g4 f+4 g4 > | f4. f8 e4 e-4 | d-2 c2 | < a-4 g4 f+4 f4 > | < g1 >
+; drums, half time
+#define HALF o2 l8 !c r r c !d r r r
+#define HALF2 o2 l8 !c r r c !d r a f
+#define HALFX o2 l8 {c > c+ <} r r c !d r r r
+
+A: @57 p56 V112 v104 o2 l4 {c g} r r r | r r r r
+A: L o3 $MOTIF
+A:   o3 a-4 r4 a-8 a-8 r4 | f4 r4 f8 f8 r4 | d-4 r4 d-8 d-8 r4 | g4 r4 g8 g8 r4
+A:   a-4 r4 a-8 a-8 r4 | f4 r4 f8 f8 r4 | g4 r4 g8 g8 r4 | g4 g4 g4 g4
+A:   o3 $MOTIF
+
+B: @48 p40 V96 v84 r1 | o4 l16 V60 c c c c V70 c c c c V80 c c c c V96 c c c c
+B: L $SCM $SCM2 $SCM $SAB $SFM $SDB $SAB $SG
+B:   $SAB $SFM $SDB $SG $SAB $SFM $SG $SG
+B:   $SCM $SCM2 $SCM $SAB $SFM $SDB $SAB $SG
+
+C: @52 p76 V88 v80 o4 {c d- g}2 r2 | r1
+C: L v72 o4 {c g}1 {c g}1 {c g}1 {c e-}2 {< b > d}2 {c f}1 {< b- > d-}1 {c e-}2 {< b > d}2 {< b > d}1
+C:   v96 e-2 c2 | f2 a-2 | f2 d-2 | d1 | e-2 c2 | f2 a-4 g4 | g2 f+2 | g1
+C:   v80 {c g}1 {c g}1 {c g}1 {c e-}2 {< b > d}2 {c f}1 {< b- > d-}1 {c e-}2 {< b > d}2 {< b > d}1
+
+D: @61 p92 V108 v96 o4 l4 {c e- g} r r r | r1
+D: L r1 r1 r1 r1 r1 r1 r1 r1
+D:   o4 l8 {c e-} r r {c e-} {c e-} r r4 | {c f} r r {c f} {c f} r r4 | {d- f} r r {d- f} {d- f} r r4 | {< b > d} r r {< b > d} {< b > d} r r4
+D:   {c e-} r r {c e-} {c e-} r r4 | {c f} r r {c f} {c f} r r4 | {< b > d} r r {< b > d} {< b > d} r r4 | l4 {< b > d} {< b > d} {< b > d} {< b > d}
+D:   @60 v92 o4 $MOTIF @61 v96
+
+E: @48 p64 V108 v100 o2 l4 c r r r | r1
+E: L o2 l8 [c]8 [c]8 [c]8 < a- a- a- a- g g g g > | f f f f f f f f | d- d- d- d- c c c c | < a- a- a- a- g g g g | g g g g g g g g >
+E:   < a-1 > | f1 | d-1 | < g1 > | < a-1 > | f1 | < g1 | g2 g2 >
+E:   l8 [c]8 [c]8 [c]8 < a- a- a- a- g g g g > | f f f f f f f f | d- d- d- d- c c c c | < a- a- a- a- g g g g | g g g g g g g g >
+
+F: @47 p64 V110 v104 o2 l4 c r r r | l16 V70 g g g g V85 g g g g V100 g g g g V115 g g g g
+F: L V104 l4 c r < g r > | c r < g r > | c r < g r > | c r < g g > | f r c r | f r c r | < a- r g r | g g g g >
+F:   l4 < a- r a- r > | f r f r | d- r d- r | < g r g r > | < a- r a- r > | f r f r | < g r g r > | l16 < [g]16 >
+F:   l4 c r < g r > | c r < g r > | c r < g r > | c r < g g > | f r c r | f r c r | < a- r g r | g g g g >
+
+G: @127 p64 V100 v100 o2 l4 {c > c+ <} r r r | l16 d d d d f f f f a a a a > c c c c <
+G: L $HALFX [$HALF]6 $HALF2
+G:   $HALFX [$HALF]2 $HALF2 $HALFX [$HALF]2 o2 l16 d d d d f f f f a a a a > c c c c <
+G:   $HALFX [$HALF]6 $HALF2

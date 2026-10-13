@@ -1,0 +1,26 @@
+#title  That Day (opening narration)
+#song   0x0D
+#tempo  66
+#reverb 50
+; C minor. A: a lone piano over a low drone and choir (i-VI-iv-V / i-VII-VI-V).
+; B: the cellos quietly sing the main theme (title.mml) in C minor over piano
+; arpeggios. 16 bars, loops.
+
+#define NCM o3 l8 c g > c e- g e- c < g
+#define NAB o2 l8 a- > e- a- > c e- c < a- e-
+#define NEB o2 l8 e- b- > e- g b- g e- < b-
+#define NBB o2 l8 b- > f b- > d f d < b- f
+#define NFM o2 l8 f > c f a- > c < a- f c
+#define NG  o2 l8 g > d g b > d < b g d
+
+A: @0 p70 V84 v96 L o5 g4 r8 e-8 c2 | a-4 r8 g8 e-2 | f4 r8 e-8 d4 c4 | < b2. r4 >
+A:   g4 r8 e-8 c2 | b-4 r8 a-8 g2 | a-4 g8 f8 e-4 d4 | d1
+A:   v80 $NCM $NAB $NEB $NBB $NCM $NAB $NFM $NG v96
+B: @48 p50 V90 v88 L o2 c1 o1 a-1 o2 f1 o2 g1 o2 c1 o1 b-1 o1 a-1 o1 g1
+B:   o2 c1 o1 a-1 o2 e-1 o1 b-1 o2 c1 o1 a-1 o2 f1 o2 g1
+C: @52 p40 V70 v70 o4 L {e- g}1 {e- a-}1 {f a-}1 {d g}1 {e- g}1 {d f}1 {c e-}1 {d g}1
+C:   v60 {e- g}1 {e- a-}1 {e- g}1 {d f}1 {e- g}1 {e- a-}1 {c f}1 {d g}1 v70
+D: @47 p64 V60 v90 o2 L r1 r1 r1 l16 V40 [g]8 V70 [g]8 | r1 r1 r1 V50 [g]8 V90 [g]8
+D:   r1 r1 r1 V40 [g]8 V60 [g]8 | r1 r1 r1 V50 [g]8 V80 [g]8
+E: @48 p84 V100 v92 L r1 r1 r1 r1 r1 r1 r1 r1
+E:   o3 c4 g4 g4. f8 | e-4 f4 g2 | b-4 g4 f4 e-4 | d2 < b-2 > | c4 g4 g4. f8 | e-4 f4 g4 a-4 | > c4 < b-4 a-4 g4 | g1
